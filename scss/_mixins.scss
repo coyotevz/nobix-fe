@@ -1,0 +1,32 @@
+/*
+ * Custom mixinx
+ */
+
+@mixin inline-block() {
+  display:    inline-block;
+  position:   relative;
+}
+
+@mixin transform($transformation...) {
+  -webkit-transform: $transformation;
+      -ms-transform: $transformation;
+          transform: $transformation;
+}
+
+@mixin fixed($left, $top) {
+  position:   fixed;
+  left:       $left;
+  top:        $top;
+}
+
+@mixin pointer-events($events) {
+  -webkit-pointer-events: $events;
+          pointer-events: $events;
+}
+
+@mixin user-select($select) {
+  -webkit-user-select: $select;
+     -mos-user-select: $select;
+      -ms-user-select: $select;
+          user-select: $select;
+}
