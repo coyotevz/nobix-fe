@@ -5,7 +5,7 @@ define(function() {
   // 'match' is a match method of the Router
   var routes = function(match) {
 
-    match('', 'hello#index', {name: 'hello'});
+    match('', 'supplier#list', {name: 'supplier_list'});
     match('suppliers', 'supplier#list', {name: 'supplier_list'});
 
   };
