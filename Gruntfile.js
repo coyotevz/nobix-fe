@@ -28,7 +28,7 @@ module.exports = function(grunt) {
           out: 'build/js/application.js',
           include: [
             'application',
-            'controllers/hello_controller',
+            'controllers/supplier_controller',
             '../<%= nunjucks.precompile.dest %>',
           ],
           //insertRequire: ['application'],
