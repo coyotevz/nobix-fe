@@ -7,12 +7,6 @@
   position:   relative;
 }
 
-@mixin transform($transformation...) {
-  -webkit-transform: $transformation;
-      -ms-transform: $transformation;
-          transform: $transformation;
-}
-
 @mixin fixed($left, $top) {
   position:   fixed;
   left:       $left;
