@@ -1,0 +1,62 @@
+body {
+  font-size: 13px;
+}
+
+.container-fluid {
+  .row {
+    padding: 0 30px;
+
+    .col {
+      &:first-child { padding-left: 0; }
+      &:last-child { padding-right: 0; }
+    }
+
+  }
+}
+
+.main {
+  background-color: #e5e5e5;
+
+  .tools-pane {
+    h4 {
+      font-size: $tools-pane-fontsize;
+      line-height: 1.2*$tools-pane-fontsize;
+      margin: ($tools-pane-fontsize/2) 0 ($tools-pane-fontsize/2) 0;
+    }
+  }
+}
+
+// Redefine some collection style
+.collection-item {
+  cursor: pointer;
+}
+
+.sidenav {
+  .collection {
+    border-radius: 3px;
+    border-style: solid;
+    border-image: none;
+    border-width: 0px 1px 2px;
+    border-color: #d8d8d8;
+  }
+}
+
+.content-pane {
+  .collection {
+    border-style: none;
+    background-size: 100% 98px;
+    background-image: linear-gradient(#e5e5e5 49px, #eaeaea 49px);
+    box-shadow: 0 0 2px rgba(0,0,0,0.12), 0 2px 4px rgba(0,0,0,0.24); 
+
+    .collection-item {
+      background-color: $white;
+      border-bottom-style: solid;
+      border-bottom-color: #ececec;
+      border-bottom-width: 1px;
+    }
+  }
+}
+
+.icon-block {
+  padding: 0 15px;
+}
