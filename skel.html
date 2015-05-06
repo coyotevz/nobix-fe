@@ -31,6 +31,7 @@
                       <input class="nbx-form-control" type="text" placeholder="Buscar clientes, proveedores o artículos" name="term">
                       <span class="nbx-input-group-btn">
                         <button class="nbx-btn" name="search" type="button">
+                          <!-- TODO: change for correct icon -->
                           <i class="fa fa-search fa-fw"></i>
                         </button>
                       </span>
@@ -70,7 +71,8 @@
               </ul>
             </div>
 
-            <div class="content col m10">
+            <div class="content col offset-m2 m10">
+              <br>
               <ul class="collection">
                 <li class="collection-item">Item 1</li>
                 <li class="collection-item">Item 2</li>
@@ -78,6 +80,28 @@
                 <li class="collection-item">Item 4</li>
                 <li class="collection-item">Item 5</li>
               </ul>
+              <br><br>
+              <ul class="collection">
+                <li class="collection-item">Item 1</li>
+                <li class="collection-item">Item 2</li>
+                <li class="collection-item">Item 3</li>
+                <li class="collection-item">Item 4</li>
+                <li class="collection-item">Item 5</li>
+                <li class="collection-item">Item 1</li>
+                <li class="collection-item">Item 2</li>
+                <li class="collection-item">Item 3</li>
+                <li class="collection-item">Item 4</li>
+                <li class="collection-item">Item 5</li>
+              </ul>
+              <br><br>
+              <ul class="collection">
+                <li class="collection-item">Item 1</li>
+                <li class="collection-item">Item 2</li>
+                <li class="collection-item">Item 3</li>
+                <li class="collection-item">Item 4</li>
+                <li class="collection-item">Item 5</li>
+              </ul>
+              <br>
 
               <!-- fixed button -->
               <div class="fixed-action-btn" style="bottom: 45px; right: 24px">
@@ -92,9 +116,13 @@
       <footer></footer>
     </div>
     <script>
-      $(function() {
-        window.console.log('I runed');
-        $(".button-collapse").sideNav();
+      $(document).ready(function() {
+        $('.button-collapse').sideNav();
+        $('.module-header').pushpin({top: $('header').height()});
+        $('.sidenav').pushpin({
+          top: $('header').height() + $('.module-header').height(),
+          offset: $('.module-header').height(),
+        });
       });
     </script>
   </body>
