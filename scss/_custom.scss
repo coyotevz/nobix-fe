@@ -1,3 +1,6 @@
+body {
+  background-color: #e5e5e5;
+}
 
 .container {
   max-width: none;
@@ -13,6 +16,7 @@
   margin: 0;
 }
 
+/* fix margins */
 .container {
   .main-header,
   .module-header,
@@ -24,7 +28,10 @@
 
 .main-header {
   height: 60px;
-  background: color("materialize-red", "base");
+  background-color: $white;
+  .row {
+    margin-bottom: 0px;
+  }
 }
 
 .module-header {
@@ -44,10 +51,6 @@
   &.supplier {
     background-color: #4285f4;
   }
-}
-
-main {
-  background-color: #e5e5e5;
 }
 
 // Redefine some collection style
