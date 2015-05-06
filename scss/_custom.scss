@@ -1,62 +1,53 @@
-body {
-  font-size: 13px;
+
+.container {
+  max-width: none;
+  width: inherit;
+  padding: 0;
 }
 
-.container-fluid {
-  .row {
-    padding: 0 30px;
+.main-header,
+.module-header,
+.module-content {
+  @extend .row;
+  padding: 0 19px;
+  margin: 0;
+}
 
-    .col {
-      &:first-child { padding-left: 0; }
-      &:last-child { padding-right: 0; }
-    }
+.container {
+  .main-header,
+  .module-header,
+  .module-content {
+    margin-right: 0;
+    margin-left: 0;
+  }
+}
+
+.main-header {
+  height: 60px;
+  background: color("materialize-red", "base");
+}
+
+.module-header {
+  @extend .white-text;
+  height: 44px;
+  font-size: 20px;
+  a {
+    @extend .white-text;
+    display: inline-block;
+  }
+
+  .module-title {
+    line-height: 44px;
+    //padding: 0 10px;
+  }
+
+  &.supplier {
+    background-color: #4285f4;
   }
 }
 
 main {
   background-color: #e5e5e5;
-
-  .header-bar {
-    @extend .row;
-    @extend .white-text;
-
-    .btn-navigation-menu {
-      @extend .btn-floating;
-      //width: 25px;
-      //display: inline-block;
-      //outline: 0;
-      //margin-right: 0.65rem;
-      //cursor: pointer;
-      //* {
-      //  @include pointer-events(none);
-      //}
-      //i {
-      //  vertical-align: middle;
-      //  color: darken($white, 10%);
-      //  font-size: 23px;
-      //}
-
-      //&:hover{
-      //  border-radius: 50%;
-      //  background-color: rgba(0, 0, 0, .1);
-      //  i {
-      //    color: $white;
-      //  }
-      //}
-    }
-
-    .module-title {
-      @extend h4;
-      font-size: $module-title-fontsize;
-      line-height: 1.2*$module-title-fontsize;
-      margin: ($module-title-fontsize/2) 0 ($module-title-fontsize/2);
-      @extend .white-text;
-    }
-
-    &.supplier {
-      background-color: #4285f4;
-    }
-  }
 }
 
 // Redefine some collection style
