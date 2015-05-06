@@ -19,24 +19,25 @@
 
   <body class="pace-init">
     <div class="wrapper">
-      <div id="header" class="top-bar">
+      <header class="top-bar">
         <div class="container-fluid">
           <div class="row logo-bar">
             <div class="col m2 logo">logo</div>
             <div class="col m10">rest</div>
           </div>
         </div>
-      </div>
-      <div id="content" class="main">
+      </header>
+      <main>
         <div class="container-fluid">
-          <div class="row tools-pane light-blue darken-2 white-text">
+          <div class="header-bar supplier">
             <div class="col m2">
-              <h4>Proveedores</h4>
+              <a class="button-collapse show-on-large" href="#"><i class="mdi-navigation-menu"></i></a>
+              <a class="module-title" href="#suppliers">Proveedores</a>
             </div>
-            <div class="col m10">toolbar</div>
+            <div class="toolbar col m10">toolbar</div>
           </div>
           <div class="row">
-            <div class="col m2 sidenav">
+            <div class="sidenav col m2">
               <ul class="collection">
                 <li class="collection-item">Side 1</li>
                 <li class="collection-item">Side 2</li>
@@ -45,7 +46,7 @@
                 <li class="collection-item">Side 5</li>
               </ul>
             </div>
-            <div class="col m10 content-pane">
+            <div class="content col m10">
 
               <ul class="collection">
                 <li class="collection-item">Item 1</li>
@@ -64,8 +65,14 @@
             </div>
           </div>
         </div>
-      </div>
-      <div id="footer"></div>
+      </main>
+      <footer></footer>
     </div>
+    <script>
+      $(function() {
+        window.console.log('I runed');
+        $(".button-collapse").sideNav();
+      });
+    </script>
   </body>
 </html>
