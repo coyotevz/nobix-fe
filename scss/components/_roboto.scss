@@ -1,38 +1,36 @@
-@font-face {
-    font-family: "Roboto";
-    src: url("#{$roboto-font-path}Roboto-Thin.woff2") format("woff2"),
-        url("#{$roboto-font-path}Roboto-Thin.woff") format("woff"),
-        url("#{$roboto-font-path}Roboto-Thin.ttf") format("truetype");
-    font-weight: 200;
-}
-@font-face {
-    font-family: "Roboto";
-    src: url("#{$roboto-font-path}Roboto-Light.woff2") format("woff2"),
-        url("#{$roboto-font-path}Roboto-Light.woff") format("woff"),
-        url("#{$roboto-font-path}Roboto-Light.ttf") format("truetype");
-    font-weight: 300;
+/* Fonts definitions */
+// Custom roboto font
+
+@mixin font-face($name, $style, $weight) {
+  @font-face {
+    $full-path: '#{$font-base-path}/#{$name}-#{$style}-#{$weight}';
+    font-family: $name;
+    font-style: $style;
+    font-weight: $weight;
+    src: url($full-path+$ext) format($fmt);
+  }
 }
 
-@font-face {
-    font-family: "Roboto";
-    src: url("#{$roboto-font-path}Roboto-Regular.woff2") format("woff2"),
-        url("#{$roboto-font-path}Roboto-Regular.woff") format("woff"),
-        url("#{$roboto-font-path}Roboto-Regular.ttf") format("truetype");
-    font-weight: 400;
-}
+$font-base-path: "../font/roboto";
+$ext: ".woff";
+$fmt: "woff";
 
-@font-face {
-    font-family: "Roboto";
-    src: url("#{$roboto-font-path}Roboto-Medium.woff2") format("woff2"),
-        url("#{$roboto-font-path}Roboto-Medium.woff") format("woff"),
-        url("#{$roboto-font-path}Roboto-Medium.ttf") format("truetype");
-    font-weight: 500;
-}
+@include font-face(Roboto, normal, 100);
+@include font-face(Roboto, normal, 300);
+@include font-face(Roboto, normal, 400);
+@include font-face(Roboto, normal, 500);
+@include font-face(Roboto, normal, 700);
+@include font-face(Roboto, normal, 900);
+@include font-face(Roboto, italic, 100);
+@include font-face(Roboto, italic, 300);
+@include font-face(Roboto, italic, 400);
+@include font-face(Roboto, italic, 500);
+@include font-face(Roboto, italic, 700);
+@include font-face(Roboto, italic, 900);
 
-@font-face {
-    font-family: "Roboto";
-    src: url("#{$roboto-font-path}Roboto-Bold.woff2") format("woff2"),
-        url("#{$roboto-font-path}Roboto-Bold.woff") format("woff"),
-        url("#{$roboto-font-path}Roboto-Bold.ttf") format("truetype");
-    font-weight: 700;
-}
+@include font-face(RobotoCondensed, normal, 300);
+@include font-face(RobotoCondensed, normal, 400);
+@include font-face(RobotoCondensed, normal, 700);
+@include font-face(RobotoCondensed, italic, 300);
+@include font-face(RobotoCondensed, italic, 400);
+@include font-face(RobotoCondensed, italic, 700);
