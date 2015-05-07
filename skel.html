@@ -14,6 +14,7 @@
     <!-- js only for skel -->
     <script src="js/vendor/jquery-2.1.3.js" type="text/javascript" charset="utf-8"></script>
     <script src="js/vendor/materialize-0.96.1.js" type="text/javascript" charset="utf-8"></script>
+    <script src="js/vendor/jquery.pin.js" type="text/javascript" charset="utf-8"></script>
 
   </head>
 
@@ -61,8 +62,8 @@
           </div>
 
           <div class="module-content">
-            <div class="sidenav col m2">
-              <ul class="collection">
+            <div class="sidenav-container col m2">
+              <ul class="sidenav collection">
                 <li class="collection-item">Side 1</li>
                 <li class="collection-item">Side 2</li>
                 <li class="collection-item">Side 3</li>
@@ -71,7 +72,7 @@
               </ul>
             </div>
 
-            <div class="content col offset-m2 m10">
+            <div class="content col m10">
               <br>
               <ul class="collection">
                 <li class="collection-item">Item 1</li>
@@ -118,10 +119,11 @@
     <script>
       $(document).ready(function() {
         $('.button-collapse').sideNav();
-        $('.module-header').pushpin({top: $('header').height()});
-        $('.sidenav').pushpin({
-          top: $('header').height() + $('.module-header').height(),
-          offset: $('.module-header').height(),
+
+        // Pin some elements
+        $('.module-header').pin();
+        $('.sidenav').pin({
+          padding: { top: $('.module-header').height() }
         });
       });
     </script>
