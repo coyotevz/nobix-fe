@@ -62,8 +62,8 @@
           </div>
 
           <div class="module-content">
-            <div class="sidenav-container col m2">
-              <ul class="sidenav">
+            <div class="module-nav-container col m2">
+              <ul class="module-nav">
                 <li class="nav-item"><a href="#">Side 1</a></li>
                 <li class="nav-item active"><a href="#">Side 2</a></li>
                 <li class="nav-item"><a href="#">Side 3</a></li>
@@ -122,8 +122,9 @@
 
         // Pin some elements
         $('.module-header').pin();
-        $('.sidenav').pin({
-          padding: { top: $('.module-header').height() }
+        $('.module-nav').pin({
+          padding: { top: $('.module-header').height() },
+          containerSelector: '.module-content',
         });
       });
     </script>
