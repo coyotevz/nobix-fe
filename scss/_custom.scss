@@ -2,6 +2,16 @@ body {
   background-color: #e5e5e5;
 }
 
+// Clean link outline
+a {
+  &,
+  &:active,
+  &:focus,
+  &:hover {
+    outline: 0 none;
+  }
+}
+
 .container {
   max-width: none;
   width: inherit;

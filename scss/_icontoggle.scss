@@ -14,6 +14,7 @@
   border-radius: 50%;
   background-color: transparent;
   opacity: 0.8;
+  @include transition(background-color 0.118s ease-out);
 
   i {
     width: inherit;
@@ -29,12 +30,16 @@
     &:focus, &:active { opacity: 0.3; background-color: transparent; }
   }
 
-  &:hover {
+  &:focus, &:hover {
     opacity: 1;
   }
 
-  &:focus, &:active {
+  &:active {
     opacity: 1;
     background-color: rgba(0,0,0,0.1);
+  }
+
+  &.flat:active {
+    background-color: transparent;
   }
 }
