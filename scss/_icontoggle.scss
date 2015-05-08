@@ -1,0 +1,40 @@
+
+
+
+.icon-toggle {
+  display: inline-block;
+  width: $button-floating-size;
+  height: $button-floating-size;
+  line-height: $button-floating-size;
+  padding: 0;
+  cursor: pointer;
+  vertical-align: middle;
+  text-align: center;
+  border: none;
+  border-radius: 50%;
+  background-color: transparent;
+  opacity: 0.8;
+
+  i {
+    width: inherit;
+    display: inline-block;
+    line-height: $button-floating-size;
+    font-size: 1.6rem;
+  }
+
+  &.disabled {
+    opacity: 0.3;
+    cursor: default;
+    &:hover { opacity: 0.3; }
+    &:focus, &:active { opacity: 0.3; background-color: transparent; }
+  }
+
+  &:hover {
+    opacity: 1;
+  }
+
+  &:focus, &:active {
+    opacity: 1;
+    background-color: rgba(0,0,0,0.1);
+  }
+}

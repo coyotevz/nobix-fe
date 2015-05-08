@@ -47,6 +47,13 @@ body {
     display: inline-block;
   }
 
+  .button-collapse {
+    display: block;
+    float: left;
+    margin-top: 4px;
+    i { font-size: 23px; }
+  }
+
   .module-title {
     line-height: 44px;
     padding: 0 10px;
@@ -99,6 +106,12 @@ body {
       }
     }
   }
+}
+
+.toolbar {
+  float: right;
+  height: 44px;
+  padding: 3px 0;
 }
 
 .main-content {
