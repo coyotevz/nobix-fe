@@ -1,7 +1,7 @@
 .search-box {
   align-items: center;
   display: flex;
-  height: 50px;
+  height: 60px;
   justify-content: flex-end;
   position: relative;
   color: #55555;
@@ -32,6 +32,16 @@
 
       &:hover {
         border-color: rgba(0,0,0,0.3);
+      }
+
+      &:focus {
+        box-shadow: 0 1px 1px rgba(0,0,0,0.075) inset;
+        border-color: #4285f4;
+      }
+
+      &::-moz-placeholder {
+        color: #999;
+        opacity: 1;
       }
     }
 
@@ -67,6 +77,23 @@
         border-color: transparent;
         background-color: #427fed;
         color: $white;
+        i {
+          font-size: 22px;
+          line-height: 24px;
+        }
+
+        &:hover,
+        &:active {
+          background-color: #4e8af5;
+        }
+
+        &:hover  {
+          box-shadow: 0 -1px 0   #3866ba inset;
+        }
+        &:active {
+          box-shadow: 0  1px 1px #3866ba inset;
+          border-color: #3866ba transparent transparent;
+        }
       }
     }
   }
