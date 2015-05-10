@@ -45,12 +45,63 @@ a {
   }
 }
 
+.logo {
+  padding: 0 0.75rem;
+}
+
+#module-selector.side-nav {
+  z-index: 499;
+  position: absolute;
+  top: 104px;
+
+  li { 
+    padding: 0 19px;
+    a {
+      display: block;
+      line-height: 44px;
+      height: 44px; 
+      @extend .truncate;
+      i {
+        font-size: 1.6rem;
+        font-weight: normal;
+        display: inline-block;
+        vertical-align: middle;
+        line-height: normal;
+      }
+      span {
+        font-weight: bold;
+        font-size: 0.9rem;
+        margin-left: 15px;
+        display: inline-block;
+        line-height: normal;
+      }
+    }
+    &.active {
+      background-color: #e1e1e1;
+    }
+    &:hover {
+      background-color: rgba(0,0,0,0.03);
+    }
+  }
+
+  &.side-fixed {
+    position: fixed;
+    top: 44px;
+  }
+}
+
+#sidenav-overlay {
+  background-color: transparent;
+  z-index: 498;
+}
+
 .module-header {
   @extend .white-text;
+  position: absolute;
   height: 44px;
   font-size: 20px;
   z-index: 500;
-  box-shadow: 0 1px 4px 0 rgba(0,0,0,0.3);
+  box-shadow: 0 3px 4px -2px rgba(0,0,0,0.3);
 
   a {
     @extend .white-text;
@@ -61,7 +112,9 @@ a {
     display: block;
     float: left;
     margin-top: 4px;
-    i { font-size: 23px; }
+    i {
+      font-size: 23px;
+    }
   }
 
   .module-title {
@@ -107,7 +160,7 @@ a {
       padding: 11px 0 11px 16px;
       position: relative;
     }
-    
+
     &.active {
       background-color: #eee;
       border-left: 2px solid #427fed;
@@ -137,6 +190,31 @@ a {
       border-bottom-color: #ececec;
       border-bottom-width: 1px;
       cursor: pointer;
+    }
+  }
+}
+
+$modules: (
+  "dashboard":  "pink",
+  "sales":      "green",
+  "purchases":  "amber",
+  "suppliers":  "blue",
+  "products":   "brown",
+  "hr":         "teal",
+);
+
+.module-name {
+  @each $mod_name, $mod_color in $modules {
+    &.#{$mod_name} {
+      a {
+        i { color: color(#{$mod_color}, "base"); }
+      }
+      //&:hover, &.active {
+      //  background-color: color(#{$mod_color}, "lighten-5");
+      //}
+      //&.active a {
+      //  font-weight: bold;
+      //}
     }
   }
 }
