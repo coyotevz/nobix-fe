@@ -90,6 +90,34 @@ a {
   }
 }
 
+.list {
+  @extend .collection;
+
+  .list-item {
+    @extend .collection-item;
+    @extend .truncate;
+    font-size: 14px;
+
+    .iconimg {
+      width: 72px;
+      float: left
+    }
+    .name {
+      width: 20%;
+      padding-right: 15px;
+      a {
+        color: #444;
+        font-weight: bold;
+        &:hover { text-decoration: underline; }
+      }
+    }
+    .actions {
+      position: absolute;
+      right: 10px;
+    }
+  }
+}
+
 #sidenav-overlay {
   background-color: transparent;
   z-index: 498;
