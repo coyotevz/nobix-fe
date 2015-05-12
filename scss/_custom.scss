@@ -92,15 +92,24 @@ a {
 
 .list {
   @extend .collection;
+  display: table;
 
   .list-item {
     @extend .collection-item;
-    @extend .truncate;
     font-size: 14px;
+    display: table-row;
+    border-bottom: 1px solid #d0d0d0;
+
+    div {
+      @extend .truncate;
+      display: table-cell;
+      padding-right: 20px;
+      line-height: 44px;
+    }
 
     .iconimg {
+      padding-left: 24px;
       width: 72px;
-      float: left
     }
     .name {
       width: 20%;
@@ -111,10 +120,9 @@ a {
         &:hover { text-decoration: underline; }
       }
     }
-    .actions {
-      position: absolute;
-      right: 10px;
-    }
+    .col3    { width: 25%; }
+    .col4    { width: 22%; }
+    .actions { width: 33%; }
   }
 }
 
