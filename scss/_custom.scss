@@ -186,6 +186,7 @@ a {
     font-size: 14px;
     display: table-row;
     border-bottom: 1px solid #d0d0d0;
+    position: relative;
 
     div {
       @extend .truncate;
@@ -198,7 +199,18 @@ a {
     .iconimg {
       padding-left: 24px;
       width: 72px;
+
+      .avatar-circle {
+        border-radius: 50%;
+        height: 28px;
+        width: 28px;
+        position: absolute;
+        left: 20px;
+        top: 10px;
+        z-index: 2;
+      }
     }
+
     .name {
       width: 20%;
       padding-right: 15px;
@@ -215,6 +227,39 @@ a {
     &:last-child {
       div { border-bottom: none; }
     }
+
+    [type="checkbox"] + label {
+      display: inline;
+      line-height: 48px;
+      padding-left: 20px;
+    }
+
+    .filled-in[type="checkbox"] {
+      &,
+      &:checked {
+        + label:before,
+        + label:after {
+          transition-property: none;
+        }
+      }
+
+      &:checked {
+        + label:before {
+          top: 1px;
+        }
+        + label:after {
+          background-color: #5a5a5a;
+          border-color: #5a5a5a;
+        }
+      }
+    }
+  }
+}
+
+.list.selection,
+.list li:hover {
+  .avatar-circle {
+    display: none;
   }
 }
 
@@ -231,18 +276,22 @@ a {
       border-bottom-color: #e0e0e0;
       border-bottom-width: 1px;
       cursor: pointer;
+
+      &.selected {
+        background-color: #e1f5fe;
+      }
     }
   }
 }
 
 $modules: (
-  "dashboard":  "pink",
-  "sales":      "green",
-  "purchases":  "amber",
-  "suppliers":  "blue",
-  "products":   "brown",
-  "hr":         "teal",
-  "finances":   "purple",
+"dashboard":  "pink",
+"sales":      "green",
+"purchases":  "amber",
+"suppliers":  "blue",
+"products":   "brown",
+"hr":         "teal",
+"finances":   "purple",
 );
 
 .module-name {
@@ -252,10 +301,10 @@ $modules: (
         i { color: color(#{$mod_color}, "base"); }
       }
       //&:hover, &.active {
-      //  background-color: color(#{$mod_color}, "lighten-5");
+        //  background-color: color(#{$mod_color}, "lighten-5");
       //}
       //&.active a {
-      //  font-weight: bold;
+        //  font-weight: bold;
       //}
     }
   }
