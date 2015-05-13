@@ -16,6 +16,7 @@ var require = {
     'nunjucks-slim':  'vendor/nunjucks-slim-1.3.3',
     'pace':           'vendor/pace-1.0.2',
     'materialize':    'vendor/materialize-0.96.1',
+    'jquery.pin':     'vendor/jquery.pin',
   },
 
   shim: {
@@ -32,7 +33,10 @@ var require = {
     },
     'nunjucks': {
       exports: 'nunjucks',
-    }
+    },
+    'jquery.pin': {
+      deps: ['jquery'],
+    },
   },
 
   // For easier development, disable brower caching
