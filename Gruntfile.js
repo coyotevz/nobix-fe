@@ -84,11 +84,16 @@ module.exports = function(grunt) {
     },
 
     copy: {
-      main: {
+      fonts: {
         expand: true,
         src: 'font/**',
         dest: 'build/',
-      }
+      },
+      images: {
+        expand: true,
+        src: 'image/**',
+        dest: 'build/',
+      },
     },
 
     watch: {
