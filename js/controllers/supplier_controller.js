@@ -3,11 +3,13 @@ define([
   'models/supplier',
   'models/supplier_collection',
   'views/base_view',
+  'views/module_header_view',
   'views/supplier/list_view',
 ], function(Controller,
             Supplier,
             SupplierCollection,
             BaseView,
+            ModuleHeaderView,
             SupplierListView) {
   "use strict";
 
@@ -17,6 +19,8 @@ define([
     beforeAction: function() {
       SupplierController.__super__.beforeAction.apply(this, arguments);
       this.reuse('root', BaseView, {region: 'root'});
+      this.reuse('module_header', ModuleHeaderView,
+                 { container: 'main .container', containerMethod: 'prepend' });
       this.publishEvent('module:setCurrent', 'supplier');
     },
 
