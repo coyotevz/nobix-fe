@@ -7,6 +7,7 @@ define([
   "use strict";
 
   var View = Chaplin.View.extend({
+    noWrap: true,
     autoRender: true,
     getTemplateFunction: function() {
       /* Template compilation

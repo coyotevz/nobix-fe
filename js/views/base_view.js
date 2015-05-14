@@ -5,11 +5,13 @@ define([
 
   var BaseView = View.extend({
     className: 'wrapper',
+    noWrap: false,
     template: 'base.html',
     regions: {
       'header': 'header',
       'main': 'main',
       'footer': 'footer',
+      'content': '#content',
     },
 
     initialize: function() {

@@ -1,9 +1,9 @@
 define([
-  'views/base/view',
-], function(View) {
+  'views/list_item_view',
+], function(ListItemView) {
   "use strict";
 
-  var SupplierItemView = View.extend({
+  var SupplierItemView = ListItemView.extend({
     template: 'supplier/item_row.html',
   });
 
