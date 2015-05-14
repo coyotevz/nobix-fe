@@ -16,12 +16,6 @@ require([
     Chaplin.mediator.publish('pace:done');
   });
 
-  Pace.once('hide', function() {
-    $('#header').addClass('top-bar');
-    $('#body').addClass('main');
-    $('body').removeClass('pace-init').addClass('pace-sync');
-  });
-
   // Cross domain CORS support for backbone.js
   $.ajaxPrefilter(function(options, originalOptions, jqXHR) {
     options.crossDomain = true;

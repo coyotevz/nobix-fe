@@ -2,21 +2,14 @@
  * PACE progress indicator theme
  */
 
-/*
- * This requires change .pace-init after first load by .pace-sync
- */
-
 // Variables
 $pace-main-color: #2299dd;
-//$pace-main-color: $link-color;
 $pace-zindex: 2000;
 $pace-bar-width: 250px;
 $pace-bar-height: 6px;
 $pace-bar-border: $pace-main-color;
 $pace-bar-bg-color: $white;
 
-
-// Common directives
 .pace {
   @include pointer-events(none);
   @include user-select(none);
