@@ -2,14 +2,12 @@ define([
   'controllers/base/controller',
   'models/supplier',
   'models/supplier_collection',
-  'views/standard_view',
-  'views/body_view',
+  'views/base_view',
   'views/supplier/list_view',
 ], function(Controller,
             Supplier,
             SupplierCollection,
-            StandardView,
-            BodyView,
+            BaseView,
             SupplierListView) {
   "use strict";
 
@@ -18,9 +16,8 @@ define([
 
     beforeAction: function() {
       SupplierController.__super__.beforeAction.apply(this, arguments);
-      this.reuse('main', StandardView, {region: 'main'});
-      this.reuse('body', BodyView, {region: 'body'});
-      this.publishEvent('menu:setCurrent', 'supplier');
+      this.reuse('root', BaseView, {region: 'root'});
+      this.publishEvent('module:setCurrent', 'supplier');
     },
 
     list: function(params) {

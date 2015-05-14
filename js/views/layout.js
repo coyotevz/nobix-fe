@@ -12,7 +12,7 @@ define([
     },
 
     regions: {
-      main: '',
+      'root': '',
     },
 
     on_dispatch: function(controller, params, route) {
