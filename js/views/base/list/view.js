@@ -13,7 +13,9 @@ define([
     initialize: function() {
       ListView.__super__.initialize.apply(this, arguments);
       if (this.selectionContextView) {
-        this.selectionContext = new this.selectionContextView({ parent: this });
+        this.selectionContext = this.reuse('selection_context',
+                                           this.selectionContextView,
+                                           {parent: this});
       }
     },
 

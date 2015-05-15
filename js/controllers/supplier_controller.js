@@ -19,8 +19,7 @@ define([
     beforeAction: function() {
       SupplierController.__super__.beforeAction.apply(this, arguments);
       this.reuse('root', BaseView, {region: 'root'});
-      this.reuse('module_header', ModuleHeaderView,
-                 { container: 'main .container', containerMethod: 'prepend' });
+      this.reuse('module_header', ModuleHeaderView);
       this.publishEvent('module:setCurrent', 'supplier');
     },
 

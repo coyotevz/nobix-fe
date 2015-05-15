@@ -5,6 +5,7 @@ define([
   "use strict";
 
   var ModuleHeaderView = View.extend({
+    container: '.module-header-wrapper',
     template: 'module_header.html',
     optionNames: View.prototype.optionNames.concat(['view']),
 

@@ -10,6 +10,7 @@ define([
      * so we need to borrow the method from the view prototype.
      */
     getTemplateFunction: View.prototype.getTemplateFunction,
+    reuse: View.prototype.reuse,
   });
 
   return CollectionView;
