@@ -1,11 +1,26 @@
 define([
   'underscore',
   'views/base/collection_view',
-], function(_, CollectionView) {
+  'views/base/list/selection_context_view'
+], function(_, CollectionView, ListSelectionContextView) {
   "use strict";
 
   var ListView = CollectionView.extend({
     animationDuration: 0,
+    selectionContext: null,
+    selectionContextView: ListSelectionContextView,
+
+    initialize: function() {
+      ListView.__super__.initialize.apply(this, arguments);
+      if (this.selectionContextView) {
+        this.selectionContext = new this.selectionContextView({ parent: this });
+      }
+    },
+
+    render: function() {
+      ListView.__super__.render.apply(this, arguments);
+      console.log('ListView#render');
+    },
 
     initItemView: function(model) {
       if (this.itemView) {
@@ -35,6 +50,7 @@ define([
         this.$el.removeClass('selection');
       }
       if (item) item.setActive();
+      if (this.selectionContext) this.selectionContext.update();
     },
 
     selectAll: function() {

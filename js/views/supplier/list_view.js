@@ -1,5 +1,5 @@
 define([
-  'views/list_view',
+  'views/base/list/view',
   'views/supplier/item_view',
 ], function(ListView, SupplierItemView) {
   "use strict";
