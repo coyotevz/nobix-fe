@@ -5,8 +5,6 @@ define([
   "use strict";
 
   var ListView = CollectionView.extend({
-
-    //noWrap: true,
     animationDuration: 0,
 
     initItemView: function(model) {
@@ -16,52 +14,42 @@ define([
           model: model,
           parent: this,
         });
-        this.listenTo(view, 'selected', this.onItemSelected);
-        this.listenTo(view, 'unselected', this.onItemUnselected);
+        this.listenTo(view, 'selected:change', this.onItemSelectedChange);
         return view;
       } else {
         throw new Error("The ListView#itemView property must be defined.");
       }
     },
 
-    onItemSelected: function(item) {
-      if (_.keys(this.getItemViews()).length > this.getSelected().length) {
-        /* partial selection */
-      } else {
-        /* full selection */
-      }
-      if (item) this.setActive(item);
-    },
-
-    onItemUnselected: function(item) {
+    onItemSelectedChange: function(item, opt) {
       if (this.getSelected().length > 0) {
-        /* partial selection */
+        /* has selection */
+        this.$el.addClass('selection');
+        if (_.keys(this.getItemViews()).length > this.getSelected().lenght) {
+          /* partial selection */
+        } else {
+          /* full selection */
+        }
       } else {
         /* all unselected */
+        this.$el.removeClass('selection');
       }
-      if (item) this.setActive(item);
+      if (item) item.setActive();
     },
 
     selectAll: function() {
       _.invoke(_.values(this.getItemViews()), 'toggleSelect', true, false);
-      this.onItemSelected();
+      this.onItemSelectedChange();
     },
 
     unselectAll: function() {
       _.invoke(_.values(this.getItemViews()), 'toggleSelect', false, false);
-      this.onItemUnselected();
+      this.onItemSelectedChange();
     },
 
     getSelected: function() {
       return _.filter(_.values(this.getItemViews()), 'selected');
     },
-
-    setActive: function(item) {
-      /* Remove selected class over all list */
-      if (item) {
-        item.$el.addClass('selected');
-      }
-    }
   });
 
   return ListView;

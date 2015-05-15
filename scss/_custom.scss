@@ -186,7 +186,6 @@ a {
     font-size: 14px;
     display: table-row;
     border-bottom: 1px solid #d0d0d0;
-    position: relative;
 
     div {
       @extend .truncate;
@@ -194,6 +193,8 @@ a {
       padding-right: 20px;
       line-height: 48px;
       border-bottom: 1px solid #ececec;
+      border-left: 2px solid transparent;
+      position: relative;
     }
 
     .iconimg {
@@ -251,6 +252,13 @@ a {
           background-color: #5a5a5a;
           border-color: #5a5a5a;
         }
+      }
+    }
+
+    &:active,
+    &.active {
+      div:first-child {
+        border-left: 2px solid #427fed;
       }
     }
   }
