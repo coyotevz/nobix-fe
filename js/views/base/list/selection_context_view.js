@@ -8,6 +8,12 @@ define([
 
     update: function() {
       var selected = this.parent.getSelected();
+      if (selected.length > 0) {
+        this.show();
+      } else {
+        this.hide();
+      }
+      this.setSelectedQty(selected.length);
     },
 
     show: function() {
