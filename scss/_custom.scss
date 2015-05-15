@@ -37,9 +37,25 @@ a {
   }
 }
 
+.module-header-wrapper {
+  position: relative;
+}
+
+.select-context {
+  @extend .module-header;
+  top: 0;
+  z-index: 501;
+  box-shadow: none !important;
+  background-color: red;
+  transform: translateY(-44px);
+  transition: all 0.15s ease-in-out 0s,
+              visibility 0s ease 0s;
+}
+
 .main-header {
   height: 60px;
   background-color: $white;
+  z-index: 600;
   .row {
     margin-bottom: 0px;
   }
