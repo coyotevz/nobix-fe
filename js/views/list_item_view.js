@@ -8,29 +8,32 @@ define([
     selected: false,
     optionNames: View.prototype.optionNames.concat(['parent']),
 
-    initialize: function() {
-      ListItemView.__super__.initialize.apply(this, arguments);
-      /* delegate some events */
+    render: function() {
+      ListItemView.__super__.render.apply(this, arguments);
+      this.delegate('change', ':checkbox', this.updateState);
+      this.checkbox = this.$(':checkbox')[0];
     },
 
-    select: function() {
-      this.parent.unselectAll();
-      this.toggleSelect(true);
-    },
-
-    onCheckboxClick: function(evt) {
-      evt.preventDefault();
-      this.toggleSelect();
-      return false;
-    },
-
-    toggleSelect: function(opt, trigger) {
-      opt = (opt !== undefined) ? Boolean(opt) : !this.selected;
-      trigger = (trigger !== undefined) ? Boolean(trigger) : true;
+    updateState: function(trigger) {
+      var opt = this.checkbox.checked;
+      trigger = (trigger !== undefined) ? Boolean(trigger): true;
       if (opt !== this.selected) {
+        this.selected = opt;
+        if (trigger) {
+          this.trigger({true: 'selected', false: 'unselected'}[opt], this);
+        }
       }
     },
 
+    setActive: function() {
+      /* desactivate any previous activated item */
+      _.invoke(_.values(this.parent.getItemViews()), 'setInactive');
+      this.$el.addClass('active');
+    },
+
+    setInactive: function() {
+      this.$el.removeClass('active');
+    },
   });
 
   return ListItemView;

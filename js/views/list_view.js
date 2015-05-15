@@ -6,7 +6,7 @@ define([
 
   var ListView = CollectionView.extend({
 
-    noWrap: true,
+    //noWrap: true,
     animationDuration: 0,
 
     initItemView: function(model) {
