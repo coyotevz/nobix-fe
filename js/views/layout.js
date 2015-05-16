@@ -1,6 +1,7 @@
 define([
   'jquery',
   'chaplin',
+  'materialize.tooltip',
 ], function($, Chaplin) {
   "use strict";
 
@@ -17,7 +18,7 @@ define([
 
     on_dispatch: function(controller, params, route) {
       console.log('dispatcher:dispatch event');
-      //$('[data-tooltip]').tooltip({ delay: 50 });
+      $('[data-tooltip]').tooltip({ delay: 50 });
     },
   });
 

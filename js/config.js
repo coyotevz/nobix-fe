@@ -17,6 +17,35 @@ var require = {
     'pace':           'vendor/pace-1.0.2',
     'materialize':    'vendor/materialize-0.96.1',
     'jquery.pin':     'vendor/jquery.pin',
+
+    // Materializedcss files
+    'jquery.easing':                   'vendor/materialize/jquery.easing.1.3',
+    'materialize.animation':           'vendor/materialize/animation',
+    'velocity':                        'vendor/materialize/velocity.min',
+    'hammerjs':                        'vendor/materialize/hammer.min',
+    'jquery.hammer':                   'vendor/materialize/jquery.hammer',
+    'materialize.global':              'vendor/materialize/global',
+    'materialize.collapsible':         'vendor/materialize/collapsible',
+    'materialize.dropdown':            'vendor/materialize/dropdown',
+    'materialize.modal':               'vendor/materialize/leanModal',
+    'materialize.materialbox':         'vendor/materialize/materialbox',
+    'materialize.parallax':            'vendor/materialize/parallax',
+    'materialize.tabs':                'vendor/materialize/tabs',
+    'materialize.tooltip':             'vendor/materialize/tooltip',
+    'materialize.waves':               'vendor/materialize/waves',
+    'materialize.toasts':              'vendor/materialize/toasts',
+    'materialize.sideNav':             'vendor/materialize/sideNav',
+    'materialize.scrollspy':           'vendor/materialize/scrollspy',
+    'materialize.form':                'vendor/materialize/form',
+    'materialize.slider':              'vendor/materialize/slider',
+    'materialize.cards':               'vendor/materialize/cards',
+    'materialize.pushpin':             'vendor/materialize/pushpin',
+    'materialize.buttons':             'vendor/materialize/buttons',
+    'materialize.transitions':         'vendor/materialize/transitions',
+    'materialize.scrollFire':          'vendor/materialize/scrollFire',
+    'materialize.date_picker':         'vendor/materialize/date_picker/picker.date',
+    'materialize.date_picker.picker':  'vendor/materialize/date_picker/picker',
+    'materialize.character_count':     'vendor/materialize/character_count',
   },
 
   shim: {
@@ -36,6 +65,12 @@ var require = {
     },
     'jquery.pin': {
       deps: ['jquery'],
+    },
+
+    // Materialize
+    'materialize.tooltip': {
+      deps: ['jquery', 'velocity', 'materialize.global'],
+      exports: '$.tooltip',
     },
   },
 
