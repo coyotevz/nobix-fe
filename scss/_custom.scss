@@ -41,12 +41,12 @@ a {
   position: relative;
 }
 
-.select-context {
+.selection-context {
   @extend .module-header;
   top: 0;
   z-index: 501 !important;
   box-shadow: none !important;
-  background-color: red;
+  background-color: #e1f5fe;
   transform: translateY(-44px);
   transition: all 0.15s ease-in-out 0s,
               visibility 0s ease 0s;
@@ -57,6 +57,37 @@ a {
     transform: translateY(0px);
     visibility: visible;
     opacity: 1;
+  }
+
+  a {
+    color: black !important;
+    opacity: 0.54;
+    &:hover {
+      opacity: 0.9;
+    }
+  }
+
+  .icon-toggle {
+    margin-top: 4px;
+    i {
+      font-size: 23px;
+    }
+  }
+
+  .button-back {
+    float: left;
+  }
+
+  .info-bar {
+    float: left;
+    font-size: 16px;
+    line-height: 44px;
+    color: #427fed;
+  }
+
+  .action-bar {
+    float: right;
+    height: 44px;
   }
 }
 

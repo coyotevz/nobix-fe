@@ -70,9 +70,24 @@
               </div>
             </div>
 
-            <div class="select-context">
-              <div class="col m2"></div>
-              <div class="col m10"></div>
+            <div class="selection-context">
+              <div class="col m2">
+                <a class="icon-toggle button-back action-back flat">
+                  <i class="mdi-navigation-arrow-back"></i>
+                </a>
+                <a class="module-title action-back" href="#">Atrás</a>
+                </a>
+              </div>
+
+              <div class="col m10">
+                <div class="info-bar">
+                  <span class="qty">0</span> selecionado(s)
+                </div>
+                <div class="action-bar">
+                  <a class="icon-toggle"><i class="mdi-action-delete"></i></a>
+                  <a class="icon-toggle"><i class="mdi-navigation-more-vert"></i></a>
+                </div>
+              </div>
             </div>
 
             <ul id="module-selector" class="side-nav">
@@ -238,6 +253,8 @@
             $side_nav.removeClass('side-fixed');
           }
         });
+
+        $('.selection-context').addClass('active-context');
       });
     </script>
   </body>

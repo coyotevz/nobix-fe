@@ -16,10 +16,16 @@ define([
       this.setSelectedQty(selected.length);
     },
 
+    setSelectedQty: function(qty) {
+      console.log('selected:', qty);
+    },
+
     show: function() {
+      this.$el.addClass('active-context');
     },
 
     hide: function() {
+      this.$el.removeClass('active-context');
     },
 
   });
