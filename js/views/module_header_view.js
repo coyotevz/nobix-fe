@@ -25,7 +25,7 @@ define([
     },
 
     pin: function() {
-      this.$el.pin();
+      this.$el.parent().pin();
     },
 
   });
