@@ -55,10 +55,13 @@
           <div class="module-header-wrapper">
             <div class="module-header supplier">
               <div class="col m2">
-                <a class="button-collapse icon-toggle" href="#" data-activates="module-selector">
-                  <i class="mdi-navigation-menu"></i>
+                <a class="button-collapse" data-activates="module-selector">
+                  <span class="icon-toggle flat">
+                    <i class="mdi-navigation-menu"></i>
+                  </span>
+                  <span class="module-title">Proveedores</span>
                 </a>
-                <a class="module-title" href="#suppliers">Proveedores</a>
+
               </div>
 
               <div class="module-toolbar col m10">
@@ -72,10 +75,11 @@
 
             <div class="selection-context">
               <div class="col m2">
-                <a class="icon-toggle button-back action-back flat">
-                  <i class="mdi-navigation-arrow-back"></i>
-                </a>
-                <a class="module-title action-back" href="#">Atrás</a>
+                <a class="action-back" data-tooltip="Cancelar selección">
+                  <span class="icon-toggle button-back flat">
+                    <i class="mdi-navigation-arrow-back"></i>
+                  </span>
+                  <span class="module-title">Atrás</span>
                 </a>
               </div>
 
@@ -256,7 +260,7 @@
 
         $('[data-tooltip]').tooltip({delay: 50});
 
-        $('.selection-context').addClass('active-context');
+        //$('.selection-context').addClass('active-context');
       });
     </script>
   </body>

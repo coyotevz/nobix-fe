@@ -169,12 +169,7 @@ a {
   a {
     @extend .white-text;
     display: inline-block;
-  }
-
-  .button-collapse {
-    display: block;
-    float: left;
-    margin-top: 4px;
+    cursor: pointer;
   }
 
   .module-title {
