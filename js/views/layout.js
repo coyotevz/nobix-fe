@@ -17,6 +17,7 @@ define([
 
     on_dispatch: function(controller, params, route) {
       console.log('dispatcher:dispatch event');
+      //$('[data-tooltip]').tooltip({ delay: 50 });
     },
   });
 

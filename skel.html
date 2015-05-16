@@ -81,7 +81,7 @@
 
               <div class="col m10">
                 <div class="info-bar">
-                  <span class="qty">0</span> selecionado(s)
+                  <span class="qty">0</span> selecionado(s) <a class="change-selection" data-tooltip="Cambiar selección"><i class="mdi-navigation-arrow-drop-down"></i></a>
                 </div>
                 <div class="action-bar">
                   <a class="icon-toggle"><i class="mdi-action-delete"></i></a>
@@ -253,6 +253,8 @@
             $side_nav.removeClass('side-fixed');
           }
         });
+
+        $('[data-tooltip]').tooltip({delay: 50});
 
         $('.selection-context').addClass('active-context');
       });

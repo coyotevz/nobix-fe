@@ -56,13 +56,11 @@ define([
     },
 
     selectAll: function() {
-      _.invoke(_.values(this.getItemViews()), 'toggleSelect', true, false);
-      this.onItemSelectedChange();
+      _.invoke(_.values(this.getItemViews()), 'toggleSelect', true);
     },
 
     unselectAll: function() {
-      _.invoke(_.values(this.getItemViews()), 'toggleSelect', false, false);
-      this.onItemSelectedChange();
+      _.invoke(_.values(this.getItemViews()), 'toggleSelect', false);
     },
 
     getSelected: function() {

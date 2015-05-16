@@ -7,7 +7,9 @@ define([
 
   var SupplierSelectionContext = ListSelectionContextView.extend({
     container: '.module-header-wrapper',
-    template: 'supplier/selection_context.html',
+    template: 'common/selection_context.html',
+
+    /* TODO: define actions */
   });
 
   var SupplierListView = ListView.extend({
