@@ -190,15 +190,17 @@ a {
   border-image: none;
   border-width: 1px 1px 2px;
   margin: 1.66rem 0 1rem;
+  box-shadow: none;
 
   .nav-item {
     background-color: $white;
     border-left: 2px solid transparent;
-    margin-top: 1px;
+    border-top: 1px solid whitesmoke;
     transition: border 0.218s ease 0s, background-color 0.218s ease 0s;
     font-size: 13px;
 
     &:first-child {
+      border-top-color: transparent;
       border-top-left-radius: 3px;
       border-top-right-radius: 3px;
       margin-top: 0;
@@ -214,15 +216,60 @@ a {
       display: block;
       padding: 11px 0 11px 16px;
       position: relative;
+      height: 42px;
+      line-height: 20px;
+      border-bottom: none;
     }
 
-    &.active {
+    &.active-item {
       background-color: #eee;
       border-left: 2px solid #427fed;
       a {
         font-weight: bold;
       }
     }
+
+    /* collapsible opened */
+    &.active {
+      border-top: 1px solid #ddd;
+    }
+
+    .collapsible-header {
+      .secondary-content {
+        float: right;
+        line-height: inherit;
+        height: inherit;
+        color: inherit;
+        margin-right: 0.5rem;
+        font-size: 1.4rem;
+        opacity: 0.3;
+      }
+
+      &:hover {
+        .secondary-content {
+          opacity: 0.9;
+        }
+      }
+
+      &.active {
+        .secondary-content:before {
+          transform: rotate(90deg);
+          transition: all 0.218 ease;
+        }
+      }
+    }
+    .collapsible-body {
+      border-bottom: none;
+      .nav-item:first-child {
+        border-top-color: whitesmoke;
+      }
+    }
+  }
+}
+
+.nav-item {
+  &.active + & {
+    border-top: 1px solid #ddd;
   }
 }
 
