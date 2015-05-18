@@ -254,7 +254,6 @@ a {
       &.active {
         .secondary-content:before {
           transform: rotate(90deg);
-          transition: all 0.218 ease;
         }
       }
     }
