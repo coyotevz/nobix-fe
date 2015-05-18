@@ -8,7 +8,7 @@ module.exports = function(grunt) {
         src: ['Gruntfile.js']
       },
       js: {
-        src: ['js/**/*.js', '!js/vendor/**.js'],
+        src: ['js/**/*.js', '!js/vendor/**/**.js'],
         options: {
           globals: {
             jQuery: true,
