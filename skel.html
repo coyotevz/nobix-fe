@@ -85,7 +85,15 @@
 
               <div class="col m10">
                 <div class="info-bar">
-                  <span class="qty">0</span> selecionado(s) <a class="change-selection" data-tooltip="Cambiar selección"><i class="mdi-navigation-arrow-drop-down"></i></a>
+                  <span class="qty">0</span> selecionado(s) <a class="change-selection"
+                    data-tooltip="Cambiar selección" data-activates="change-selection-dropdown">
+                    <i class="mdi-navigation-arrow-drop-down"></i>
+                  </a>
+                  <!-- dropdown -->
+                  <ul id="change-selection-dropdown" class="dropdown-content">
+                    <li><a id="select-all" href="#">Seleccionar todos</a></li>
+                    <li><a id="unselect-all" href="#">No selecionar ninguno</a></li>
+                  </ul>
                 </div>
                 <div class="action-bar">
                   <a class="icon-toggle"><i class="mdi-action-delete"></i></a>
@@ -276,7 +284,11 @@
 
         $('[data-tooltip]').tooltip({delay: 50});
 
-        //$('.selection-context').addClass('active-context');
+        $('.change-selection').dropdown({
+          constrain_width: false,
+          belowOrigin: true,
+        });
+        $('.selection-context').addClass('active-context');
       });
     </script>
   </body>

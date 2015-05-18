@@ -71,6 +71,10 @@ var require = {
       deps: ['jquery', 'velocity', 'materialize.global'],
       exports: '$.tooltip',
     },
+    'materialize.dropdown': {
+      deps: ['jquery', 'jquery.easing', 'materialize.animation', 'materialize.global'],
+      exports: '$.dropdown',
+    },
   },
 
   // For easier development, disable brower caching

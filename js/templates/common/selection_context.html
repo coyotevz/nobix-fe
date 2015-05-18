@@ -10,7 +10,12 @@
   <div class="col m10">
     <div class="row">
       <div class="info-bar">
-        <span class="selected-count-data">0</span> seleccionado(s) <a class="change-selection" data-position="bottom" data-tooltip="Cambiar Seleción"><i class="mdi-navigation-arrow-drop-down"></i></a>
+        <span class="selected-count-data">0</span> seleccionado(s) <a class="change-selection" data-position="bottom" data-tooltip="Cambiar Seleción" data-activates="change-selection-dropdown"><i class="mdi-navigation-arrow-drop-down"></i></a>
+        <!-- dropdown -->
+        <ul id="change-selection-dropdown" class="dropdown-content">
+          <li><a id="select-all" href="#">Seleccionar todos</a></li>
+          <li><a id="unselect-all" href="#">No seleccionar ninguno</a></li>
+        </ul>
       </div>
       <div class="action-bar">
         <a id="action-delete" class="icon-toggle" data-tooltip="Eliminar"><i class="mdi-action-delete"></i></a>

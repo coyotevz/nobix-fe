@@ -50,7 +50,7 @@ a {
   background-color: #e1f5fe;
   transform: translateY(-44px);
   transition: all 0.15s ease-in-out 0s,
-              visibility 0s ease 0s;
+  visibility 0s ease 0s;
   visibility: hidden;
   opacity: 0;
 
@@ -110,6 +110,17 @@ a {
 
 .logo {
   padding: 0 0.75rem;
+}
+
+.dropdown-content {
+  li {
+    & > span,
+    & > a {
+      font-size: 13px;
+      line-height: 20px;
+      padding: 0.5rem 1rem;
+    }
+  }
 }
 
 #module-selector.side-nav {
