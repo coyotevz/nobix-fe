@@ -19,28 +19,46 @@
     this.$element   = null;
     this.inState    = null;
 
-    this.init('tooltip', element, options);
+    this.init(element, options);
   };
-
-  Tooltip.VERSION = '3.3.4';
-
-  Tooltip.TRANSITION_DURATION = 150;
 
   Tooltip.DEFAULTS = {
     animation: true,
     placement: 'top',
-    selector: false,
     template: '<div class="tooltip" role="tooltip"><div class="tooltip-inner"></div></div>',
     trigger: 'hover focus',
     title: '',
     delay: 0,
-    html: false,
-    container: false,
-    viewport: {
-      selector: 'body',
-      padding: 0
-    }
   };
+
+  $.extend(Tooltip.prototype, {
+    init: function(element, options) {
+    },
+
+    getOptions: function() {
+    },
+
+    enter: function(obj) {
+    },
+
+    leave: function(obj) {
+    },
+
+    show: function() {
+    },
+
+    hide: function(cb) {
+    },
+
+    tip: function() {
+    },
+
+    setContent: function() {
+    },
+
+    destroy: function() {
+    }
+  });
 
   Tooltip.prototype.init = function(type, element, options) {
     this.enabled   = true;
@@ -93,83 +111,85 @@
   };
 
   Tooltip.prototype.enter = function(obj) {
+    var self = obj instanceof this.constructor ?
+      obj : $(obj.currentTarget).data('nobix.' + this.type);
+    if (!self) {
+      self = new this.constructor(obj.currentTarget, this.getDelegateOptions());
+      $(obj.currentTarget).data('nobix.' + this.type, self);
+    }
+
+    if (obj instanceof $.Event)
+      self.inState[obj.type == 'focusin' ? 'focus' : 'hover'] = true;
+
+    if (elf.tip().hasClass('in') || self.hoverState == 'in') {
+      self.hoverState = 'in';
+      return;
+    }
+
+    clearTimeout(self.timeout);
+
+    self.hoverState = 'in';
+    if (!self.options.delay || !self.options.delay.show) return self.show();
+
+    self.timeout = setTimeout(function() {
+      if (self.hoverState == 'in') self.show();
+    }, self.options.delay.show);
   };
 
   Tooltip.prototype.leave = function(obj) {
+    var self = obj instanceof this.constructor ?
+      obj : $(obj.currentTarget).data.('nobix.' + this.type, self);
+    }
   };
 
   Tooltip.prototype.show = function() {
     var e = $.Event('show.nobix.' + this.type);
 
-    if (this.hasContent() && this.enabled) {
-      this.$element.trigger(e);
+    if (!this.hasContent() || !this.enabled) return;
 
-      var inDom = $.contains(this.$element[0].ownerDocument.documentElement, this.$element[0]);
+    this.$element.trigger(e);
+    var inDom = $.contains(this.$element[0].ownerDocument.documentElement, this.$element[0]);
+    if (e.isDefaultPrevented() || !inDom) return;
 
-      if (e.isDefaultPrevented() || !inDom) return;
-      var that = this;
-      var $tip = this.tip();
-      var tipId = this.getUID(this.type);
-      this.setContent();
-      $tip.attr('id', tipId);
+    var that = this;
+    var $tip = this.tip();
+    this.setContent();
 
-      if (this.options.animation) $tip.addClass('fade');
-      
-      var placement = typeof this.options.placement == 'function' ?
-        this.options.placement.call(this, $tip[0], this.$element[0]) :
-        this.options.placement;
+    if (this.options.animation) $tip.addClass('fade');
 
-      var autoToken = /\s?auto?\s/i;
-      var autoPlace = autoToken.test(placement);
-      if (autoPlace) placement = placement.replace(autoToken, '') || 'top';
+    var placement = typeof this.options.placement == 'function' ?
+      this.options.placement.call(this, $tip[0], this.$element[0]) :
+      this.options.placement;
 
-      $tip
-        .detach()
-        .css({ top: 0, left: 0, display: 'block' })
-        .addClass(placement)
-        .data('nobix.' + this.type, this);
+    $tip
+      .detach()
+      .css({ top: 0, left: 0, display: 'block'})
+      .addClass(placement);
+      .data('nobix.' + this.type, this);
 
-      this.options.container ? $tip.appendTo(this.options.container) : $tip.insertAfter(this.$element);
-      this.$element.trigger('inserted.nobix.' + this.type);
+    this.options.container ? $tip.appendTo(this.options.container) : $tip.insertAfter(this.$element);
+    this.applyPlacement(placement);
 
-      var pos          = this.getPosition();
-      var actualWidth  = $tip[0].offsetWidth;
-      var actualHeight = $tip[0].offsetHeight;
-
-      if (autoPlace) {
-        var orgPlacement = placement;
-        var viewportDim = this.getPosition(this.$viewport);
-
-        placement = placement == 'bottom' && pos.bottom + actualHeight > viewportDim.bottom ? 'top'    :
-                    placement == 'top'    && pos.top    - actualHeight < viewportDim.top    ? 'bottom' :
-                    placement == 'right'  && pos.right  + actualWidth  > viewportDim.width  ? 'left'   :
-                    placement == 'left'   && pos.left   - actualWidth  < viewportDim.left   ? 'right'  :
-                    placement;
-
-        $tip
-          .removeClass(orgPlacement)
-          .addClass(placement);
-    }
-
-    var calculatedOffset = this.getCalculatedOffset(placement, pos, actualWidth, actualHeight);
-    this.applyPlacement(calculatedOffset, placement);
-
-    var complete = function() {
-      var prevHoverState = that.hoverState;
-      that.$element.tirgget('shown.nobix.' + that.type);
-      that.hoverState = null;
-
-      if (prevHoverState == 'out') that.leave(that);
-    };
-
-    $.support.transition && this.$tip.hasClass('fade') ?
-      $tip
-        .one('nobixTransitionEnd', complete)
-        .emulateTransitionEnd(Tooltip.TRANSITION_DURATION) :
-      complete();
+    /* TODO: Start transition to show tooltip */
   };
 
-  Tooltip.prototype.hide = function() {
+  Tooltip.prototype.hide = function(callback) {
+    var that = this;
+    var $tip = $(this.$tip);
+    var e    = $.Event('hide.nobix.' + this.type);
+
+    function complete() {
+      callback && callback();
+    }
+
+    this.$element.trigger(e);
+    if (e.isDefaultPrevented()) return;
+
+    $tip.removeClass('in');
+
+    /* TODO: Start transition to hide tooltip */
+
+    return this;
   };
 
   Tooltip.prototype.tip = function() {
@@ -180,6 +200,48 @@
       }
     }
     return this.$tip;
+  };
+
+  Tooltip.prototype.enable = function() {
+    this.enabled = true;
+  };
+
+  Tooltip.prototype.disable = function() {
+    this.enabled = false;
+  };
+
+  Tooltip.prototype.toggleEnabled = function() {
+    this.enabled = !this.enabled;
+  };
+
+  Tooltip.prototype.fixTitle = function() {
+    var $e = this.$element;
+    if ($e.attr('title') || typeof $e.attr('data-original-title') != 'string') {
+      $e.attr('data-original-title', $e.attr('title') || '').attr('title', '');
+    }
+  };
+
+  Tooltip.prototype.getTitle = function() {
+    var title;
+    var $e = this.$element;
+    var o = this.options;
+
+    title = $e.attr('data-original-title')
+      || (typeof o.title == 'function' ? o.title.call($e[0]): o.title);
+
+    return title;
+  };
+
+  Tooltip.prototype.hasContent = function() {
+    return this.getTitle();
+  };
+
+  Tooltip.prototype.setContent = function() {
+    var $tip  = this.tip();
+    var title = this.getTitle();
+
+    $tip.find('.tooltip-inner')[this.options.html ? 'html' : 'text'](title);
+    $tip.removeClass('fade in top bottom left right');
   };
 
   Tooltip.prototype.destroy = function() {
