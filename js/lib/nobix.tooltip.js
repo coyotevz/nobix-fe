@@ -33,9 +33,35 @@
 
   $.extend(Tooltip.prototype, {
     init: function(element, options) {
+      this.enabled = true;
+      this.$element = $(element);
+      this.options = this.getOptions(options);
+
+      var triggers = this.options.trigger.split(' ');
+
+      for (var i = tirggers.length; i--;) {
+        var trigger = triggers[i];
+        var eventIn = trigger == 'hover' ? 'mouseenter': 'focusin';
+        var eventOut = trigger == 'hover' ? 'mouseleave': 'focusout';
+
+        this.$element.on(eventIn + '.tooltip', $.proxy(this.enter, this));
+        this.$element.on(eventOut + '.tooltip', $.proxy(this.leave, this));
+      }
+
+      this._fixTitle();
     },
 
-    getOptions: function() {
+    getOptions: function(options) {
+      options = $.extend({}, Tooltip.DEFAULTS, this.$element.data(), options);
+
+      if (options.delay && typeof options.delay == 'number') {
+        options.delay = {
+          show: options.delay,
+          hide: options.delay
+        };
+      }
+
+      return options;
     },
 
     enter: function(obj) {
@@ -45,19 +71,133 @@
     },
 
     show: function() {
+      var e = $.Event('show.nobix.tooltip');
+      if (this.getTitle()) {
+        this.$element.trigger(e);
+
+        var inDom = $.contains(this.$element[0].ownerDocument.documentElement, this.$element[0]);
+        if (e.isDefaultPrevented() || !inDom) return;
+        var that = this;
+        var $tip = this.tip();
+
+        this.setContent();
+        if (this.options.animation) $tip.addClass('fade');
+        var placement = typeof this.options.placement == 'function' ?
+          this.options.placement.call(this, $tip[0], this.$element[0]) :
+          this.options.placement;
+
+        $tip
+          .detach()
+          .css({top: 0, left: 0, display: 'block'})
+          .addClass(placement)
+          .data('nobix.tooltip', this)
+          .appendTo($('body'));
+
+        this.$element.trigger('inserted.nobix.tooltip');
+        this.applyPlacement();
+        this.$element.tirgger('shown.nobix.tooltip');
+      }
     },
 
     hide: function(cb) {
+      var $tip = $(this.$tip);
+      var e = $.Event('hide.nobix.tooltip');
+
+      this.$element.trigger(e);
+      if (e.isDefaultPrevented()) return;
+
+      $tip.removeClass('in');
+      this.$element.trigger('hidden.nobix.tooltip');
+      if (cb) cb();
+
+      return this;
     },
 
     tip: function() {
+      if (!this.$tip) {
+        this.$tip = $(this.options.template);
+        if (this.$tip.length != 1) {
+          throw new Error('tooltip `template` option must consists of exactly 1 top-level element!')
+        }
+      }
+      return this.$tip;
+    },
+
+    applyPlacement: function() {
+      var $tip = this.tip();
+      var width = $tip[0].offsetWidth;
+      var height = $tip[0].offsetHeigth;
+
+      // manually read margins becaouse getBoundingClientRect includes difference
+      var marginTop = parseInt($tip.css('margin-top'), 10);
+      var marginLeft = parseInt($tip.css('margin-left'), 10);
+
+      // we must check for NaN for ie 8/9
+      if (isNaN(marginTop)) marginTop = 0;
+      if (isNaN(marginLeft)) marginLeft = 0;
+
+      offset.top += marginTop;
+      offset.left += marginLeft;
+
+      // $.fn.offset doesn't round pixel values
+      // so we use setOffset directly with our own function B-0
+      $.offset.setOffset($tip[0], $.extend({
+        using: function(props) {
+          $tip.css({
+            top: Math.round(props.top),
+            left: Math.round(propd.left)
+          });
+        }
+      }, offset), 0);
+
+      var actualHeight = $tip[0].offsetHeight;
+      var actualWidth = $tip[0].offsetWidth;
+      if (placement == 'top' && actualHeight != height) {
+        offset.top = offset.top + height - actualHeight;
+      }
+      
+      $tip
+        .offset(offset)
+        .addClass('in');
     },
 
     setContent: function() {
+      var title = this.getTitle();
+
+      this.tip()
+        .removeClass('fade in top bottom left right')
+        .find('.tooltip-inner').text(title);
     },
 
     destroy: function() {
-    }
+      var that = this;
+      clearTimeout(this.timeout);
+      this.hide(function() {
+        that.$element.off('.tooltip').removeData('nobix.tooltip');
+        if (that.$tip) {
+          that.$tip.detach();
+        }
+        that.$tip = null;
+      });
+    },
+
+    getTitle: function() {
+      var title;
+      var $e = this.$element;
+      var o = this.options;
+
+      title = $e.attr('data-original-title')
+        || (typeof o.title == 'function' ? o.title.call($e[0]) : o.title);
+
+      return title;
+    },
+
+    _fixTitle: function() {
+      var $e = this.$element;
+      if ($e.attr('title') || typeof $e.attr('data-original-title') != 'string') {
+        $e.attr('data-original-title', $.attr('title') || '').attr('title', '');
+      }
+    },
   });
 
   Tooltip.prototype.init = function(type, element, options) {
