@@ -65,9 +65,40 @@
     },
 
     enter: function(obj) {
+      var self = obj instanceof this.constructor ?
+        obj : $(obj.currentTarget).data('nobix.tooltip');
+
+      if (!self) {
+        self = new this.constructor(obj.currentTarget, this.options);
+        $(obj.currentTarget).data('nobix.tooltip', self);
+      }
+
+      clearTimeout(self.timeout);
+
+      if (!self.options.delay || !self.options.delay.show) return self.show();
+
+      self.timeout = setTimeout(function() {
+        self.show();
+      }, self.options.delay.show);
     },
 
     leave: function(obj) {
+      var self = obj instanceof this.constructor ?
+        obj : $(obj.currentTarget).data('nobix.tooltip');
+
+      if (!self) {
+        self = new this.constructor(obj.currentTarget, this.options);
+        $(obj.currentTarget).data('nobix.tooltip', self);
+      }
+
+      clearTimeout(self.timeout);
+
+      if (!self.options.delay || !self.options.delay.hide) return self.hide();
+
+      self.timeout = setTimeout(function() {
+        self.hide();
+      }, self.options.delay.hide);
+
     },
 
     show: function() {
