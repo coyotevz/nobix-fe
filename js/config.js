@@ -45,6 +45,9 @@ var require = {
     'materialize.date_picker':         'vendor/materialize/date_picker/picker.date',
     'materialize.date_picker.picker':  'vendor/materialize/date_picker/picker',
     'materialize.character_count':     'vendor/materialize/character_count',
+
+    // Custom files
+    'nobix.tooltip':    'lib/nobix.tooltip',
   },
 
   shim: {
@@ -74,6 +77,12 @@ var require = {
     'materialize.dropdown': {
       deps: ['jquery', 'jquery.easing', 'materialize.animation', 'materialize.global'],
       exports: '$.dropdown',
+    },
+
+    // Custom lib
+    'nobix.tooltip': {
+      deps: ['jquery'],
+      exports: '$.tooltip',
     },
   },
 
