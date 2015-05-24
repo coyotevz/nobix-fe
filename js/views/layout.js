@@ -22,6 +22,9 @@ define([
         placement: 'bottom',
         delay: { show: 400, hide: 0},
       });
+      $(document).bind('click.out-tooltip', function(e) {
+        $('[rel="tooltip"]').tooltip('hide');
+      });
     },
   });
 
