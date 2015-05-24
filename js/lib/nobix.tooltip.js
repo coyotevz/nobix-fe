@@ -161,8 +161,6 @@
       var width = $tip[0].offsetWidth;
       var height = $tip[0].offsetHeight;
 
-      console.log('width:', width, 'height:', height);
-
       var pos = $.extend({},
         this.$element[0].getBoundingClientRect(),
         { scroll: this.$element.scrollTop() },
@@ -173,9 +171,6 @@
                    placement == 'top'    ? { top: pos.top - height,     left: pos.left + pos.width / 2 - width / 2  } :
                    placement == 'left'   ? { top: pos.top + pos.height / 2 - height / 2, left: pos.left - width     } :
                 /* placement == 'right' */ { top: pos.top + pos.height / 2 - height / 2, left: pos.left + pos.width };
-
-      console.log('pos:', pos);
-      console.log('offset:', offset);
 
       // manually read margins becaouse getBoundingClientRect includes difference
       var marginTop = parseInt($tip.css('margin-top'), 10);
@@ -244,7 +239,6 @@
     _fixTitle: function() {
       var $e = this.$element;
       if ($e.attr('title') || typeof $e.attr('data-original-title') != 'string') {
-        console.log('title:', $e.attr('title'));
         $e.attr('data-original-title', $e.attr('title') || '').attr('title', '');
       }
     },
