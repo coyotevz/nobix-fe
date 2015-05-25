@@ -102,36 +102,38 @@
               </div>
             </div>
 
-            <ul id="module-selector" class="side-nav">
-              <li class="module-name dashboard"><a href="#dashboard">
-                  <i class="mdi-action-home"></i>
-                  <span>Dashboard</span>
-              </a></li>
-              <li class="module-name sales"><a href="#sales">
-                  <i class="mdi-action-store"></i>
-                  <span>Ventas</span>
-              </a></li>
-              <li class="module-name purchases"><a href="#purchases">
-                  <i class="mdi-action-shopping-cart"></i>
-                  <span>Compras</span>
-              </a></li>
-              <li class="module-name suppliers active"><a href="#supplier">
-                  <i class="mdi-social-domain"></i>
-                  <span>Proveedores</span>
-              </a></li>
-              <li class="module-name products"><a href="#products">
-                  <i class="mdi-maps-local-offer"></i>
-                  <span>Productos</span>
-              </a></li>
-              <li class="module-name hr"><a href="#hr">
-                  <i class="mdi-social-people"></i>
-                  <span>Recursos Humanos</span>
-              </a></li>
-              <li class="module-name finances"><a href="#hr">
-                  <i class="mdi-action-trending-up"></i>
-                  <span>Finanzas</span>
-              </a></li>
-            </ul>
+            <div class="module-selector-wrapper">
+              <ul id="module-selector" class="side-nav">
+                <li class="module-name dashboard"><a href="#dashboard">
+                    <i class="mdi-action-home"></i>
+                    <span>Dashboard</span>
+                </a></li>
+                <li class="module-name sales"><a href="#sales">
+                    <i class="mdi-action-store"></i>
+                    <span>Ventas</span>
+                </a></li>
+                <li class="module-name purchases"><a href="#purchases">
+                    <i class="mdi-action-shopping-cart"></i>
+                    <span>Compras</span>
+                </a></li>
+                <li class="module-name suppliers active"><a href="#supplier">
+                    <i class="mdi-social-domain"></i>
+                    <span>Proveedores</span>
+                </a></li>
+                <li class="module-name products"><a href="#products">
+                    <i class="mdi-maps-local-offer"></i>
+                    <span>Productos</span>
+                </a></li>
+                <li class="module-name hr"><a href="#hr">
+                    <i class="mdi-social-people"></i>
+                    <span>Recursos Humanos</span>
+                </a></li>
+                <li class="module-name finances"><a href="#hr">
+                    <i class="mdi-action-trending-up"></i>
+                    <span>Finanzas</span>
+                </a></li>
+              </ul>
+            </div>
 
           </div>
 
@@ -268,19 +270,19 @@
         // Pin some elements
         $('.module-header-wrapper').pin();
         //$('.side-nav').pin();
-        $mod_nav.pin({
-          padding: { top: $('.module-header-wrapper').height() },
-          containerSelector: '.module-content',
-        });
+        //$mod_nav.pin({
+        //  padding: { top: $('.module-header-wrapper').height() },
+        //  containerSelector: '.module-content',
+        //});
 
         // Stick side-nav position on scroll
-        $(window).scroll(function(evt) {
-          if ($mod_nav.css('position') === "fixed") {
-            $side_nav.addClass('side-fixed');
-          } else {
-            $side_nav.removeClass('side-fixed');
-          }
-        });
+        //$(window).scroll(function(evt) {
+        //  if ($mod_nav.css('position') === "fixed") {
+        //    $side_nav.addClass('side-fixed');
+        //  } else {
+        //    $side_nav.removeClass('side-fixed');
+        //  }
+        //});
 
         $('[data-tooltip]').tooltip({delay: 50});
 
@@ -288,7 +290,7 @@
           constrain_width: false,
           belowOrigin: true,
         });
-        $('.selection-context').addClass('active-context');
+        //$('.selection-context').addClass('active-context');
       });
     </script>
   </body>

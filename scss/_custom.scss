@@ -123,10 +123,17 @@ a {
   }
 }
 
+.module-selector-wrapper {
+  position: absolute;
+  //top: 0;
+  //bottom: 0;
+}
+
 #module-selector.side-nav {
   z-index: 499;
   position: absolute;
   top: 104px;
+  bottom: 0px;
 
   li { 
     padding: 0 19px;
