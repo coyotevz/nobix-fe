@@ -1,8 +1,5 @@
 <ul class="module-nav collapsible">
   {% for item in items %}
-  <li class="nav-item">
-  </li>
-  <li class="nav-item"><a href="#">Side 1</a></li>
-  <li class="nav-item active-item"><a href="#">Side 2</a></li>
+  <li id="item-{{ item.name }}" class="nav-item"><a>{{ item.label }}</a></li>
   {% endfor %}
 </ul>

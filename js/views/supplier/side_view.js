@@ -7,11 +7,15 @@ define([
 
     menuItems: [
       {
-        name: 'dashboard',
-        title: 'Ver Todos',
-        url: 'dashboard',
+        name: 'showall',
+        label: 'Todos',
+        action: 'showAll',
       },
     ],
+
+    showAll: function() {
+      console.log('show all!');
+    },
 
   });
 

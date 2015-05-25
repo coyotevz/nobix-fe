@@ -12,6 +12,7 @@ define([
       'main': 'main',
       'footer': 'footer',
       'content': '#content',
+      'module_nav': '#module-nav-container',
     },
 
     initialize: function() {

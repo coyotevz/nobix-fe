@@ -33,6 +33,7 @@ define([
         collection: this.supplierList,
         region: 'content',
       });
+      this.reuse('sidebar').setView(this.view);
     },
   });
 
