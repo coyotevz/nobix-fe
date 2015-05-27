@@ -52,7 +52,7 @@
       <main>
 
         <div class="container">
-          <div class="module-header-wrapper">
+          <div class="module-header-container">
             <div class="module-header supplier">
               <div class="col m2">
                 <a class="button-collapse" data-activates="module-selector">
@@ -103,6 +103,7 @@
             </div>
           </div>
 
+          <div class="module-selector-container">
             <ul id="module-selector" class="side-nav">
               <li class="module-name dashboard"><a href="#dashboard">
                   <i class="mdi-action-home"></i>
@@ -133,6 +134,7 @@
                   <span>Finanzas</span>
               </a></li>
             </ul>
+          </div>
 
 
           <div class="module-content">
@@ -262,7 +264,7 @@
           closeOnClick: true
         });
 
-        var $mod_header = $('.module-header-wrapper');
+        var $mod_header = $('.module-header-container');
         var $side_nav = $('.side-nav');
 
         // Pin some elements

@@ -37,7 +37,7 @@ a {
   }
 }
 
-.module-header-wrapper {
+.module-header-container {
   height: 44px;
   position: relative;
 }
@@ -121,12 +121,6 @@ a {
       padding: 0.5rem 1rem;
     }
   }
-}
-
-.module-selector-wrapper {
-  position: absolute;
-  //top: 0;
-  //bottom: 0;
 }
 
 #module-selector.side-nav {

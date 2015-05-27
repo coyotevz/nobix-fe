@@ -1,11 +1,12 @@
 define([
   'views/base/view',
   'jquery.pin',
+  'materialize.sideNav',
 ], function(View) {
   "use strict";
 
   var ModuleHeaderView = View.extend({
-    container: '.module-header-wrapper',
+    container: '.module-header-container',
     template: 'module_header.html',
     optionNames: View.prototype.optionNames.concat(['view']),
 
@@ -26,6 +27,9 @@ define([
 
     pin: function() {
       this.$el.parent().pin();
+      this.$('.button-collapse').sideNav({
+        closeOnClick: true
+      });
     },
 
   });

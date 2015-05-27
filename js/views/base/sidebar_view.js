@@ -22,7 +22,7 @@ define([
 
     pin: function() {
       this.$el.pin({
-        padding: { top: $('.module-header-wrapper').height() },
+        padding: { top: $('.module-header-container').height() },
         containerSelector: '.module-content',
       });
     },

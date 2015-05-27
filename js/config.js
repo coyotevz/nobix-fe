@@ -78,6 +78,10 @@ var require = {
       deps: ['jquery', 'jquery.easing', 'materialize.animation', 'materialize.global'],
       exports: '$.dropdown',
     },
+    'materialize.sideNav': {
+      deps: ['jquery', 'velocity', 'hammerjs', 'jquery.hammer'],
+      exports: '$.sideNav',
+    },
 
     // Custom lib
     'nobix.tooltip': {

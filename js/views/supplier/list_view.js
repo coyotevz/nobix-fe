@@ -6,7 +6,7 @@ define([
   "use strict";
 
   var SupplierSelectionContext = ListSelectionContextView.extend({
-    container: '.module-header-wrapper',
+    container: '.module-header-container',
     template: 'common/selection_context.html',
 
     /* TODO: define actions */
