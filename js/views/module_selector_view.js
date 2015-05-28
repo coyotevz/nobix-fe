@@ -17,7 +17,7 @@ define([
     },
 
     onScroll: function(evt) {
-      console.log('this.$el:', this.$el);
+      //console.log('this.$el:', this.$el);
       // TODO: adjust on scroll event
     },
   });
