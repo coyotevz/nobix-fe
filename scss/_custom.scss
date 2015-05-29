@@ -1,5 +1,6 @@
 body {
   background-color: #e5e5e5;
+  overflow-y: hidden;
 }
 
 // Clean link outline
@@ -433,11 +434,7 @@ $modules: (
   }
 }
 
-.icon-block {
-  padding: 0 15px;
-}
-
-.material-tooltip {
-  font-size: 13px;
-  line-height: 13px;
+.nicescroll-rails {
+  background-color: whitesmoke;
+  border-left: 1px solid #bdbdbd;
 }

@@ -7,15 +7,16 @@ var require = {
 
   paths: {
     // Specify the path for vendor libraries
-    'json':           'vendor/json2-2015-02-25',
-    'jquery':         'vendor/jquery-2.1.3',
-    'underscore':     'vendor/lodash-3.7.0',
-    'backbone':       'vendor/backbone-1.1.2',
-    'chaplin':        'vendor/chaplin-1.0.1',
-    'nunjucks':       'vendor/nunjucks-1.3.3',
-    'nunjucks-slim':  'vendor/nunjucks-slim-1.3.3',
-    'pace':           'vendor/pace-1.0.2',
-    'jquery.pin':     'vendor/jquery.pin',
+    'json':              'vendor/json2-2015-02-25',
+    'jquery':            'vendor/jquery-2.1.3',
+    'underscore':        'vendor/lodash-3.7.0',
+    'backbone':          'vendor/backbone-1.1.2',
+    'chaplin':           'vendor/chaplin-1.0.1',
+    'nunjucks':          'vendor/nunjucks-1.3.3',
+    'nunjucks-slim':     'vendor/nunjucks-slim-1.3.3',
+    'pace':              'vendor/pace-1.0.2',
+    'jquery.pin':        'vendor/jquery.pin',
+    'jquery.nicescroll': 'vendor/jquery.nicescroll-3.4.0',
 
     // Materializedcss files
     'jquery.easing':                   'vendor/materialize/jquery.easing.1.3',

@@ -15,7 +15,7 @@
     <script src="js/vendor/jquery-2.1.3.js" type="text/javascript" charset="utf-8"></script>
     <script src="js/vendor/materialize-0.96.1.js" type="text/javascript" charset="utf-8"></script>
     <script src="js/vendor/jquery.pin.js" type="text/javascript" charset="utf-8"></script>
-    <!-- script src="js/lib/jquery.sidenav.js" type="text/javascript" charset="utf-8"></script-->
+    <script src="js/vendor/jquery.nicescroll-3.4.0.js" type="text/javascript" charset="utf-8"></script>
 
   </head>
 
@@ -262,6 +262,17 @@
       $(document).ready(function() {
         $('.button-collapse').sideNav({
           closeOnClick: true
+        });
+
+        $('html').niceScroll({
+          cursorcolor: "#bdbdbd",
+          cursoropacitymin: 0,
+          cursoropacitymax: 1,
+          cursorwidth: "6px",
+          cursorborder: "1px solid transparent",
+          cursorborderradius: 0,
+          zindex: 600,
+          horizontalenabled: false,
         });
 
         var $mod_header = $('.module-header-container');
