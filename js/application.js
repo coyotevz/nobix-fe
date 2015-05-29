@@ -33,12 +33,27 @@ require([
       this.layout = new Layout(options);
     },
 
+    initMediator: function() {
+      // Set available modules
+      Chaplin.mediator.modules = [
+        {name: 'dashboard', title: 'Dashboard'       , icon: 'mdi-action-home'          },
+        {name: 'sales'    , title: 'Ventas'          , icon: 'mdi-action-store'         },
+        {name: 'purchases', title: 'Compras'         , icon: 'mdi-action-shopping-cart' },
+        {name: 'suppliers', title: 'Proveedores'     , icon: 'mdi-social-domain'        },
+        {name: 'products' , title: 'Productos'       , icon: 'mdi-maps-local-offer'     },
+        {name: 'hr'       , title: 'Recursos Humanos', icon: 'mdi-social-people'        },
+        {name: 'finances' , title: 'Finanzas'        , icon: 'mdi-action-trending-up'   },
+      ];
+
+      Application.__super__.initMediator.call(this);
+    },
+
     start: function() {
       var args = [].slice.call(arguments);
       // You can fetch some data here and start app
       // (by calling supermethod) after that.
-      console.log('Start application');
-      Chaplin.Application.prototype.start.apply(this, args);
+      console.log('Start application', args);
+      Application.__super__.start.apply(this, args);
     },
   });
 
