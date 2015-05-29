@@ -150,7 +150,7 @@
         var sel = this.options.selector || '[rel="tooltip"]';
         this.$tip = $(sel).length ? $(sel) : $(this.options.template);
         if (this.$tip.length != 1) {
-          throw new Error('tooltip `template` option must consists of exactly 1 top-level element!')
+          throw new Error('tooltip `template` option must consists of exactly 1 top-level element!');
         }
       }
       return this.$tip;
@@ -230,8 +230,7 @@
       var $e = this.$element;
       var o = this.options;
 
-      title = $e.attr('data-original-title')
-        || (typeof o.title == 'function' ? o.title.call($e[0]) : o.title);
+      title = $e.attr('data-original-title') || (typeof o.title == 'function' ? o.title.call($e[0]) : o.title);
 
       return title;
     },
