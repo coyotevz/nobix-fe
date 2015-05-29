@@ -45,7 +45,7 @@ define([
     },
 
     setCurrentMenu: function($item) {
-      if ($item != null) {
+      if ($item !== null) {
         this.$('li.nav-item.active-item').removeClass('active-item');
         $item.addClass('active-item');
       }

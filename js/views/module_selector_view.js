@@ -13,12 +13,12 @@ define([
     },
 
     bindScroll: function() {
-      $(window).scroll(this.onScroll);
+      $(window).scroll($.proxy(this.onScroll, this));
+      this.$mod_header = $('.module-header-container');
     },
 
     onScroll: function(evt) {
-      //console.log('this.$el:', this.$el);
-      // TODO: adjust on scroll event
+      this.$el.toggleClass('side-fixed', this.$mod_header.css('position') == 'fixed');
     },
   });
 

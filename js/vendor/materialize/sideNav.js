@@ -139,7 +139,7 @@
             var velocityX = e.gesture.velocityX;
 
             // Disable Scrolling
-            $('body').css('overflow', 'hidden');
+            //$('body').css('overflow', 'hidden');
 
             // If overlay does not exist, create one and if it is clicked, close menu
             if ($('#sidenav-overlay').length === 0) {
@@ -251,7 +251,7 @@
             else {
 
               // Disable Scrolling
-              $('body').css('overflow', 'hidden');
+              //$('body').css('overflow', 'hidden');
 
               if (options.edge === 'left') {
                 $('.drag-target').css({width: '50%', right: 0, left: ''});

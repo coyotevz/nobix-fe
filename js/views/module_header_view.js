@@ -2,6 +2,7 @@ define([
   'views/base/view',
   'jquery.pin',
   'materialize.sideNav',
+  'views/module_selector_view',
 ], function(View) {
   "use strict";
 
@@ -27,7 +28,9 @@ define([
 
     pin: function() {
       this.$el.parent().pin();
-      this.$('.button-collapse').sideNav({
+      this.$('.button-collapse').click(function() {
+        $(this).tooltip('hide');
+      }).sideNav({
         closeOnClick: true
       });
     },
