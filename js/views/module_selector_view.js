@@ -1,7 +1,8 @@
 define([
+  'chaplin',
   'views/base/view',
   'jquery',
-], function(View, $) {
+], function(Chaplin, View, $) {
   "use strict";
 
   var ModuleSelectorView = View.extend({
@@ -10,6 +11,10 @@ define([
 
     listen: {
       'pace:hide mediator': 'bindScroll',
+    },
+
+    getTemplateData: function() {
+      return {modules: Chaplin.mediator.modules};
     },
 
     bindScroll: function() {

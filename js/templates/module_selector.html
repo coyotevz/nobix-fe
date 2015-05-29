@@ -1,14 +1,10 @@
 <ul id="module-selector" class="side-nav">
-  <li class="module-name dashboard">
-    <a href="#dashboard">
-      <i class="mdi-action-home"></i>
-      <span>Dashboard</span>
+  {% for module in modules %}
+  <li class="module-name {{ module.name }}">
+    <a href="#{{ module.name }}">
+      <i class="{{ module.icon }}"></i>
+      <span>{{ module.title }}</span>
     </a>
   </li>
-  <li class="module-name suppliers">
-    <a href="#suppliers">
-      <i class="mdi-social-domain"></i>
-      <span>Proveedores</span>
-    </a>
-  </li>
+  {% endfor %}
 </ul>
