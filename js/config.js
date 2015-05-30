@@ -68,6 +68,11 @@ var require = {
     },
     'jquery.pin': {
       deps: ['jquery'],
+      exports: '$.pin',
+    },
+    'jquery.nicescroll': {
+      deps: ['jquery'],
+      exports: '$.niceScroll',
     },
 
     // Materialize
