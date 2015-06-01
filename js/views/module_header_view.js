@@ -12,7 +12,7 @@ define([
     optionNames: View.prototype.optionNames.concat(['view']),
 
     listen: {
-      'pace:hide mediator': 'pin',
+      'pace:hide mediator': 'setupCollapse',
     },
 
     initialize: function() {
@@ -26,8 +26,7 @@ define([
       };
     },
 
-    pin: function() {
-      this.$el.parent().pin();
+    setupCollapse: function() {
       this.$('.button-collapse').click(function() {
         $(this).tooltip('hide');
       }).sideNav({

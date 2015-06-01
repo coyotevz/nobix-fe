@@ -12,19 +12,8 @@ define([
     menuItems: null,
     _current: null,
 
-    listen: {
-      'pace:hide mediator': 'pin',
-    },
-
     getTemplateData: function() {
       return {items: this.menuItems};
-    },
-
-    pin: function() {
-      this.$el.pin({
-        padding: { top: $('.module-header-container').height() },
-        containerSelector: '.module-content',
-      });
     },
 
     render: function() {
