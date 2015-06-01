@@ -12,7 +12,7 @@ define([
       'main': 'main',
       'footer': 'footer',
       'content': '#content',
-      'module_nav': '#module-nav-container',
+      'module_nav': '.module-nav-container',
       'module_selector': '.module-selector-container',
     },
 

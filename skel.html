@@ -14,7 +14,6 @@
     <!-- js only for skel -->
     <script src="js/vendor/jquery-2.1.3.js" type="text/javascript" charset="utf-8"></script>
     <script src="js/vendor/materialize-0.96.1.js" type="text/javascript" charset="utf-8"></script>
-    <script src="js/vendor/jquery.pin.js" type="text/javascript" charset="utf-8"></script>
     <script src="js/vendor/jquery.nicescroll-3.4.0.js" type="text/javascript" charset="utf-8"></script>
 
   </head>
@@ -75,7 +74,7 @@
 
             <div class="selection-context">
               <div class="col m2">
-                <a class="action-back" data-tooltip="Cancelar selección">
+                <a class="action-back" title="Cancelar selección" rel="tooltip">
                   <span class="icon-toggle button-back flat">
                     <i class="mdi-navigation-arrow-back"></i>
                   </span>
@@ -86,7 +85,7 @@
               <div class="col m10">
                 <div class="info-bar">
                   <span class="qty">0</span> selecionado(s) <a class="change-selection"
-                    data-tooltip="Cambiar selección" data-activates="change-selection-dropdown">
+                    rel="tooltip" title="Cambiar selección" data-activates="change-selection-dropdown">
                     <i class="mdi-navigation-arrow-drop-down"></i>
                   </a>
                   <!-- dropdown -->
@@ -164,7 +163,7 @@
               </ul>
             </div>
 
-            <div class="main-content col m10">
+            <div class="main-content col m10 offset-m2">
               <br>
               <ul class="list suppliers-list">
                 <li class="list-item">
@@ -275,17 +274,10 @@
           horizontalenabled: false,
         });
 
-        var $mod_header = $('.module-header-container');
-        var $side_nav = $('.side-nav');
-
-        // Pin some elements
-        $mod_header.pin();
-
-        $(window).scroll(function(evt) {
-          $side_nav.toggleClass('side-fixed', $mod_header.css('position') == 'fixed');
+        $('[rel="tooltip"]').tooltip({
+          placement: 'bottom',
+          delay: { show: 400, hide: 0},
         });
-
-        $('[data-tooltip]').tooltip({delay: 50});
 
         $('.change-selection').dropdown({
           constrain_width: false,

@@ -30,7 +30,6 @@ a {
 
 /* fix margins */
 .container {
-  //.main-header,
   .module-header,
   .module-content {
     margin-right: 0;
@@ -38,9 +37,13 @@ a {
   }
 }
 
+.module-content {
+  top: 56px;
+}
+
 .module-header-container {
   height: 56px;
-  position: relative;
+  //position: fixed;
 }
 
 .selection-context {
@@ -100,22 +103,6 @@ a {
   }
 }
 
-/*
-.main-header {
-  height: 60px;
-  background-color: $white;
-  z-index: 600;
-  position: relative;
-  .row {
-    margin-bottom: 0px;
-  }
-}
-
-.logo {
-  padding: 0 0.75rem;
-}
-*/
-
 .dropdown-content {
   li {
     & > span,
@@ -173,7 +160,7 @@ a {
 
 .module-header {
   @extend .white-text;
-  position: absolute;
+  position: fixed;
   height: 56px;
   font-size: 20px;
   z-index: 500;
@@ -186,13 +173,22 @@ a {
   }
 
   .module-title {
-    line-height: 56px;
+    line-height: 37px;
     padding: 0 10px;
   }
 
   &.supplier {
     background-color: #4285f4;
   }
+}
+
+.action-back,
+.button-collapse {
+  padding: 10px 0 9px;
+}
+
+.module-nav-container {
+  position: fixed;
 }
 
 .module-nav {
