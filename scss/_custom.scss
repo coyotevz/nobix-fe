@@ -3,6 +3,10 @@ body {
   overflow-y: hidden;
 }
 
+html, body, .wrapper {
+  height: 100%;
+}
+
 // Clean link outline
 a {
   &,
@@ -182,10 +186,10 @@ a {
   }
 }
 
-.action-back,
-.button-collapse {
-  padding: 10px 0 9px;
-}
+//.action-back,
+//.button-collapse {
+//  padding: 8px 0;
+//}
 
 .module-nav-container {
   position: fixed;
