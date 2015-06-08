@@ -21,26 +21,61 @@
 
     <div class="wrapper">
 
-      <nav class="appbar row supplier" role="navigation">
-        <div class="navbar-header col m2">
-          <a href="#" class="button-collapse" data-activates="mobile-demo">
-            <i class="mdi-navigation-menu"></i>
-            <span class="module-title">Module Name</span>
-          </a> 
-        </div>
-        <div class="navbar col m10">
-          <div class="searchbox col m9">
-            <div class="search-icon">
-              <i class="mdi-action-search"></i>
+      <header>
+        <nav class="appbar row supplier" role="navigation">
+          <div class="navbar-header col m2">
+            <a href="#" class="button-collapse" data-activates="mobile-demo">
+              <i class="mdi-navigation-menu"></i>
+              <span class="module-title">Module Name</span>
+            </a> 
+            <a href="#" class="action-back">
+              <i class="mdi-navigation-arrow-back"></i>
+              <span class="action-back-label">Atras</span>
+            </a>
+          </div>
+          <div class="navbar col m10">
+            <div class="searchbox col m9">
+              <div class="search-icon">
+                <i class="mdi-action-search"></i>
+              </div>
+              <div class="search-input">
+                <input id="search" type="search" placeholder="Buscar">
+              </div>
             </div>
-            <div class="search-input">
-              <input id="search" type="search" placeholder="Buscar">
+            <div class="toolbox col m3">
+              <a class="icon-toggle" href="#"><i class="mdi-action-alarm"></i></a>
+              <a class="icon-toggle disabled" href="#"><i class="mdi-navigation-refresh"></i></a>
+              <a class="icon-toggle flat with-search" href="#"><i class="mdi-navigation-more-vert"></i></a>
             </div>
           </div>
-          <div class="toolbox col m3">t
+        </nav>
+
+        <nav class="selection-context row active-context">
+          <div class="col m2">
+            <a href="#"class="action-back" title="Cancelar selección" rel="tooltip">
+              <i class="mdi-navigation-arrow-back"></i>
+              <span class="action-back-label">Atras</span>
+            </a>
           </div>
-        </div>
-      </nav>
+          <div class="col m10">
+            <div class="selection-info-bar col m9">
+              <span class="qty">0</span> seleccionado(s) <a class="change-selection" rel="tooltip" title="Cambiar selección" data-activates="change-selection-dropdown">
+                <i class="mdi-navigation-arrow-drop-down"></i>
+              </a>
+              <!-- dropdown -->
+              <ul id="change-selection-dropdown" class="dropdown-content">
+                <li><a id="select-all" href="#">Seleccionar todos</a></li>
+                <li><a id="unselect-all" href="#">No seleccionar ninguno</a></li>
+              </ul>
+            </div>
+            <div class="toolbox col m3">
+              <a class="icon-toggle"><i class="mdi-action-delete"></i></a>
+              <a class="icon-toggle"><i class="mdi-navigation-more-vert"></i></a>
+            </div>
+          </div>
+        </nav>
+
+      </header>
 
       <main>
         <div>Main Content</div>

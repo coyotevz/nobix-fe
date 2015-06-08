@@ -50,63 +50,6 @@ a {
   //position: fixed;
 }
 
-.selection-context {
-  @extend .module-header;
-  top: 0;
-  z-index: 501 !important;
-  box-shadow: none !important;
-  background-color: #e1f5fe;
-  transform: translateY(-56px);
-  transition: all 0.15s ease-in-out 0s,
-  visibility 0s ease 0s;
-  visibility: hidden;
-  opacity: 0;
-
-  &.active-context {
-    transform: translateY(0px);
-    visibility: visible;
-    opacity: 1;
-  }
-
-  a {
-    color: black !important;
-    opacity: 0.54;
-    cursor: pointer;
-    position: relative;
-    &:hover {
-      opacity: 0.9;
-    }
-  }
-
-  .icon-toggle {
-    //margin-top: 4px;
-  }
-
-  .button-back {
-    float: left;
-  }
-
-  .info-bar {
-    float: left;
-    font-size: 16px;
-    line-height: 56px;
-    color: #427fed;
-
-    .change-selection i {
-      position: relative;
-      top: 4px;
-      font-size: 23px;
-      line-height: 23px;
-    }
-  }
-
-  .action-bar {
-    float: right;
-    height: 56px;
-    padding: 10px 0 9px;
-  }
-}
-
 .dropdown-content {
   li {
     & > span,
