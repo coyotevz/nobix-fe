@@ -1,7 +1,8 @@
 define([
+  'chaplin',
   'views/base/view',
   'materialize.sideNav',
-], function(View) {
+], function(Chaplin, View) {
   "use strict";
 
   var HeaderView = View.extend({
@@ -10,21 +11,33 @@ define([
     el: 'header',
 
     listen: {
-      'pace:hide mediator': 'setupCollapse',
+      'pace:hide mediator': 'setupView',
     },
 
     getTemplateData: function() {
-      return { module:
-        { name: 'supplier', url: '#suppliers', title: 'Proveedores' }
+      return {
+        module: { name: 'supplier', url: '#suppliers', title: 'Proveedores' },
+        modules: Chaplin.mediator.modules,
       };
     },
 
-    setupCollapse: function() {
+    setupView: function() {
       this.$('.button-collapse').on("click", function() {
         $(this).tooltip('hide');
       }).sideNav({
         closeOnClick: true
       });
+
+      this.$('.searchbox').on("click", function() {
+        $('.search-input input', this).trigger("focus");
+      });
+      this.$('.search-input input')
+        .on("focusin", function() {
+          $('.appbar').addClass('on-search');
+        })
+        .on("focusout", function() {
+          $('.appbar.on-search').removeClass('on-search');
+        });
     },
   });
 

@@ -1,8 +1,8 @@
-<nav class="appbar row" role="navigation">
+<nav class="appbar row {{ module.name }}" role="navigation">
   <div class="navbar-header col s2">
-    <a class="button-collapse" data-activates="module-selector" href="#">
+    <a class="button-collapse" data-activates="module-selector" title="Módulos disponibles" rel="tooltip">
       <i class="mdi-navigation-menu"></i>
-      <span class="module-title">{ Module title }</span>
+      <span class="module-title">{{ module.title }}</span>
     </a>
     <a class="action-back">
       <i class="mdi-navigation-arrow-back"></i>
@@ -30,10 +30,14 @@
 </nav>
 
 <ul id="module-selector" class="side-nav">
-  <li class="module-name dashboard">
-    <a href="#dashboard">
-      <i class="mdi-action-home"></i>
-      <span>Dashboard</span>
+  {% for module in modules %}
+  <li class="module-name {{ module.name }}">
+    <a href="#{{ module.name }}">
+      <i class="{{ module.icon }}"></i>
+      <span>{{ module.title }}</span>
     </a>
   </li>
+  {% endfor %}
 </ul>
+{# vim: ft=jinja:sw=2
+#}
