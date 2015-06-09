@@ -244,6 +244,17 @@
         constrain_width: false,
         belowOrigin: true,
       });
+
+      /* searchbox behaviour */
+      $('.searchbox').on("click", function() {
+        $('.search-input input', this).trigger("focus");
+      });
+      $('.search-input input').on("focusin", function() {
+        $(this).parents('.appbar').addClass('on-search');
+      }).on("focusout", function() {
+        $(this).parents('.appbar').removeClass('on-search');
+      });
+
       //$('.selection-context').addClass('active-context');
     });
   </script>
