@@ -25,7 +25,7 @@ define([
       this.supplierList = new SupplierCollection();
       this.view = new SupplierListView({
         collection: this.supplierList,
-        region: 'content',
+        region: 'main_content',
       });
       this.reuse('sidebar').setView(this.view);
     },

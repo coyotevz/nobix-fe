@@ -25,7 +25,7 @@ define([
       this.employeeList = new EmployeeCollection();
       this.view = new EmployeeListView({
         collection: this.employeeList,
-        region: 'content',
+        region: 'main_content',
       });
     },
   });
