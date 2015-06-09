@@ -1,6 +1,5 @@
 define([
   'views/base/view',
-  'jquery.pin',
 ], function(View) {
   "use strict";
 

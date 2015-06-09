@@ -1,6 +1,5 @@
 define([
   'views/base/view',
-  'jquery.pin',
   'materialize.sideNav',
   'views/module_selector_view',
 ], function(View) {

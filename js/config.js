@@ -15,7 +15,6 @@ var require = {
     'nunjucks':          'vendor/nunjucks-1.3.3',
     'nunjucks-slim':     'vendor/nunjucks-slim-1.3.3',
     'pace':              'vendor/pace-1.0.2',
-    'jquery.pin':        'vendor/jquery.pin',
 
     // Materializedcss files
     'jquery.easing':                   'vendor/materialize/jquery.easing.1.3',
@@ -64,10 +63,6 @@ var require = {
     },
     'nunjucks': {
       exports: 'nunjucks',
-    },
-    'jquery.pin': {
-      deps: ['jquery'],
-      exports: '$.pin',
     },
 
     // Materialize
