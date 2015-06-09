@@ -28,6 +28,7 @@ define([
         closeOnClick: true
       });
 
+      // TODO: This needs more work
       this.$('.searchbox').on("click", function() {
         $('.search-input input', this).trigger("focus");
       });
