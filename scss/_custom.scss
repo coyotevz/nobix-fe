@@ -14,6 +14,7 @@ a {
   &:focus,
   &:hover {
     outline: 0 none;
+    cursor: pointer;
   }
 }
 
@@ -247,13 +248,13 @@ a {
 }
 
 $modules: (
-"dashboard":  "pink",
-"sales":      "green",
-"purchases":  "amber",
-"suppliers":  "blue",
-"products":   "brown",
-"hr":         "teal",
-"finances":   "purple",
+  "dashboard":  "pink",
+  "sales":      "green",
+  "purchases":  "amber",
+  "suppliers":  "blue",
+  "products":   "brown",
+  "hr":         "teal",
+  "finances":   "purple",
 );
 
 .module-name {
@@ -268,6 +269,14 @@ $modules: (
       //&.active a {
         //  font-weight: bold;
       //}
+    }
+  }
+}
+
+nav.appbar {
+  @each $mod_name, $mod_color in $modules {
+    &.#{$mod_name} {
+      background-color: color(#{$mod_color}, "base");
     }
   }
 }
