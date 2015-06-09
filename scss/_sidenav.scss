@@ -1,0 +1,45 @@
+
+.side-nav {
+  z-index: 450;
+  position: absolute;
+  top: 56px;
+  bottom: 0px;
+  height: calc(100% - 56px);
+  width: calc(16.667% + 0.75rem);
+  position: fixed;
+
+  li { 
+    padding: 0 19px;
+    a {
+      display: block;
+      line-height: 44px;
+      height: 44px; 
+      @extend .truncate;
+      i {
+        font-size: 1.6rem;
+        font-weight: normal;
+        display: inline-block;
+        vertical-align: middle;
+        line-height: normal;
+      }
+      span {
+        font-weight: bold;
+        font-size: 0.9rem;
+        margin-left: 15px;
+        display: inline-block;
+        line-height: normal;
+      }
+    }
+    &.active {
+      background-color: #e1e1e1;
+    }
+    &:hover {
+      background-color: rgba(0,0,0,0.03);
+    }
+  }
+}
+
+#sidenav-overlay {
+  background-color: transparent;
+  z-index: 498;
+}

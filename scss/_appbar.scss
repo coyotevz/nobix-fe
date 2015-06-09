@@ -3,8 +3,7 @@ nav.appbar, nav.selection-context {
   position: fixed;
   height: 56px;
   margin-bottom: 0;
-  padding-left: 20px;
-  padding-right: 20px;
+  line-height: 26px;
 
   a.button-collapse,
   a.action-back {
@@ -170,4 +169,8 @@ nav.selection-context {
       line-height: 23px;
     }
   }
+}
+
+main {
+  padding-top: 56px;
 }

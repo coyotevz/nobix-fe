@@ -1,6 +1,6 @@
 body {
-  background-color: #e5e5e5;
-  overflow-y: hidden;
+  background-color: #ececec;
+  overflow-y: scroll;
 }
 
 html, body, .wrapper {
@@ -17,37 +17,11 @@ a {
   }
 }
 
-.container {
-  max-width: none;
-  width: inherit;
-  padding: 0;
-}
-
-//.main-header,
-.module-header,
+.appbar,
+.selection-context,
 .module-content {
-  @extend .row;
-  padding: 0 19px;
-  margin: 0;
-  width: 100%;
-}
-
-/* fix margins */
-.container {
-  .module-header,
-  .module-content {
-    margin-right: 0;
-    margin-left: 0;
-  }
-}
-
-.module-content {
-  top: 56px;
-}
-
-.module-header-container {
-  height: 56px;
-  //position: fixed;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 .dropdown-content {
@@ -61,81 +35,9 @@ a {
   }
 }
 
-#module-selector.side-nav {
-  z-index: 499;
-  position: absolute;
-  top: 56px;
-  bottom: 0px;
-  height: calc(100% - 56px);
+.module-nav-container.col.s2 {
   position: fixed;
-
-  li { 
-    padding: 0 19px;
-    a {
-      display: block;
-      line-height: 44px;
-      height: 44px; 
-      @extend .truncate;
-      i {
-        font-size: 1.6rem;
-        font-weight: normal;
-        display: inline-block;
-        vertical-align: middle;
-        line-height: normal;
-      }
-      span {
-        font-weight: bold;
-        font-size: 0.9rem;
-        margin-left: 15px;
-        display: inline-block;
-        line-height: normal;
-      }
-    }
-    &.active {
-      background-color: #e1e1e1;
-    }
-    &:hover {
-      background-color: rgba(0,0,0,0.03);
-    }
-  }
-}
-
-#sidenav-overlay {
-  background-color: transparent;
-  z-index: 498;
-}
-
-.module-header {
-  @extend .white-text;
-  position: fixed;
-  height: 56px;
-  font-size: 20px;
-  z-index: 500;
-  box-shadow: 0 3px 4px -2px rgba(0,0,0,0.3);
-
-  a {
-    @extend .white-text;
-    display: inline-block;
-    cursor: pointer;
-  }
-
-  .module-title {
-    line-height: 37px;
-    padding: 0 10px;
-  }
-
-  &.supplier {
-    background-color: #4285f4;
-  }
-}
-
-//.action-back,
-//.button-collapse {
-//  padding: 8px 0;
-//}
-
-.module-nav-container {
-  position: fixed;
+  width: calc(16.6667% - 6px);
 }
 
 .module-nav {
@@ -227,12 +129,6 @@ a {
   &.active + & {
     border-top: 1px solid #ddd;
   }
-}
-
-.toolbar {
-  float: right;
-  height: 56px;
-  padding: 10px 0 9px;
 }
 
 .list {
@@ -333,7 +229,7 @@ a {
   .collection {
     border-style: none;
     background-size: 100% 98px;
-    background-image: linear-gradient(#e5e5e5 49px, #eaeaea 49px);
+    background-image: linear-gradient(#ececec 49px, #eaeaea 49px);
     box-shadow: 0 0 2px rgba(0,0,0,0.12), 0 2px 4px rgba(0,0,0,0.24); 
 
     .collection-item {
