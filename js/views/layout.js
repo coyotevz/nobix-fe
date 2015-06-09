@@ -2,7 +2,6 @@ define([
   'jquery',
   'chaplin',
   'nobix.tooltip',
-  'jquery.nicescroll',
 ], function($, Chaplin) {
   "use strict";
 
@@ -25,16 +24,6 @@ define([
       });
       $(document).bind('click.out-tooltip', function(e) {
         $('[rel="tooltip"]').tooltip('hide');
-      });
-      $('html').niceScroll({
-        cursorcolor: "#bdbdbd",
-        cursoropacitymin: 0,
-        cursoropacitymax: 1,
-        cursorwidth: "6px",
-        cursorborder: "1px solid transparent",
-        cursorborderradius: 0,
-        //zindex: 600,
-        horizontalenabled: false,
       });
     },
   });

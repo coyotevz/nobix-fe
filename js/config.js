@@ -16,7 +16,6 @@ var require = {
     'nunjucks-slim':     'vendor/nunjucks-slim-1.3.3',
     'pace':              'vendor/pace-1.0.2',
     'jquery.pin':        'vendor/jquery.pin',
-    'jquery.nicescroll': 'vendor/jquery.nicescroll-3.4.0',
 
     // Materializedcss files
     'jquery.easing':                   'vendor/materialize/jquery.easing.1.3',
@@ -69,10 +68,6 @@ var require = {
     'jquery.pin': {
       deps: ['jquery'],
       exports: '$.pin',
-    },
-    'jquery.nicescroll': {
-      deps: ['jquery'],
-      exports: '$.niceScroll',
     },
 
     // Materialize
