@@ -17,7 +17,7 @@ define([
     beforeAction: function() {
       SupplierController.__super__.beforeAction.apply(this, arguments);
       this.reuse('sidebar', SupplierSideView);
-      this.publishEvent('module:setCurrent', 'supplier');
+      this.publishEvent('module:setCurrent', 'suppliers');
     },
 
     list: function(params) {
