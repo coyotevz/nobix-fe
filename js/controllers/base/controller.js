@@ -1,9 +1,8 @@
 define([
   'chaplin',
   'views/base_view',
-  'views/module_selector_view',
-  'views/module_header_view',
-], function(Chaplin, BaseView, ModuleSelectorView, ModuleHeaderView) {
+  'views/header_view',
+], function(Chaplin, BaseView, HeaderView) {
   "use strict";
 
   var Controller = Chaplin.Controller.extend({
@@ -11,8 +10,7 @@ define([
     beforeAction: function() {
       Controller.__super__.beforeAction.apply(this, arguments);
       this.reuse('root', BaseView, {region: 'root'});
-      this.reuse('module_selector', ModuleSelectorView);
-      this.reuse('module_header', ModuleHeaderView);
+      this.reuse('header', HeaderView, {container: 'header'});
     },
   });
 

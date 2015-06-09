@@ -8,12 +8,8 @@ define([
     noWrap: false,
     template: 'base.html',
     regions: {
-      'header': 'header',
-      'main': 'main',
-      'footer': 'footer',
-      'content': '#content',
+      'main_content': '.main-content',
       'module_nav': '.module-nav-container',
-      'module_selector': '.module-selector-container',
     },
 
     initialize: function() {

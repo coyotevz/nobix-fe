@@ -6,6 +6,8 @@ define([
 
   var HeaderView = View.extend({
     template: 'header.html',
+    noWrap: false,
+    el: 'header',
 
     listen: {
       'pace:hide mediator': 'setupCollapse',
