@@ -251,8 +251,19 @@
       });
       $('.search-input input').on("focusin", function() {
         $(this).parents('.appbar').addClass('on-search');
-      }).on("focusout", function() {
-        $(this).parents('.appbar').removeClass('on-search');
+      });
+      $('main').on("click", function() {
+        $('.appbar.on-search').removeClass('on-search');
+      });
+      $('.appbar .action-back').on("click", function(evt) {
+        evt.preventDefault();
+        $('.appbar').removeClass('on-search');
+      });
+      $(document).on("keydown", function(evt) {
+        if (evt.which == 27 && // esc key
+            $('.appbar').hasClass('on-search')) {
+          $('.appbar').removeClass('on-search');
+        }
       });
 
       //$('.selection-context').addClass('active-context');
