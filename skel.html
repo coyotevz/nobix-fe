@@ -225,49 +225,59 @@
             </div>
           </div>
         </div>
-      </div>
-    </main>
-    <footer></footer>
-  </div>
-  <script>
-    $(document).ready(function() {
-      $('.button-collapse').sideNav({
-        closeOnClick: true
-      });
 
-      $('[rel="tooltip"]').tooltip({
-        placement: 'bottom',
-        delay: { show: 400, hide: 0},
-      });
+        <div class="modal">
+          <div class="modal-content">
+            <h4>Modal Header</h4>
+            <p>Modal content body text.</p>
+          </div>
+          <div class="modal-footer">
+            <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+          </div>
+        </div>
 
-      $('.change-selection').dropdown({
-        constrain_width: false,
-        belowOrigin: true,
-      });
+      </main>
+      <footer></footer>
+    </div>
+    <script>
+      $(document).ready(function() {
+        $('.button-collapse').sideNav({
+          closeOnClick: true
+        });
 
-      /* searchbox behaviour */
-      $('.searchbox').on("click", function() {
-        $('.search-input input', this).trigger("focus");
-      });
-      $('.search-input input').on("focusin", function() {
-        $(this).parents('.appbar').addClass('on-search');
-      });
-      $('main').on("click", function() {
-        $('.appbar.on-search').removeClass('on-search');
-      });
-      $('.appbar .action-back').on("click", function(evt) {
-        evt.preventDefault();
-        $('.appbar').removeClass('on-search');
-      });
-      $(document).on("keydown", function(evt) {
-        if (evt.which == 27 && // esc key
-            $('.appbar').hasClass('on-search')) {
+        $('[rel="tooltip"]').tooltip({
+          placement: 'bottom',
+          delay: { show: 400, hide: 0},
+        });
+
+        $('.change-selection').dropdown({
+          constrain_width: false,
+          belowOrigin: true,
+        });
+
+        /* searchbox behaviour */
+        $('.searchbox').on("click", function() {
+          $('.search-input input', this).trigger("focus");
+        });
+        $('.search-input input').on("focusin", function() {
+          $(this).parents('.appbar').addClass('on-search');
+        });
+        $('main').on("click", function() {
+          $('.appbar.on-search').removeClass('on-search');
+        });
+        $('.appbar .action-back').on("click", function(evt) {
+          evt.preventDefault();
           $('.appbar').removeClass('on-search');
-        }
-      });
+        });
+        $(document).on("keydown", function(evt) {
+          if (evt.which == 27 && // esc key
+              $('.appbar').hasClass('on-search')) {
+            $('.appbar').removeClass('on-search');
+          }
+        });
 
-      //$('.selection-context').addClass('active-context');
-    });
-  </script>
-</body>
+        //$('.selection-context').addClass('active-context');
+      });
+    </script>
+  </body>
 </html>
