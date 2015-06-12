@@ -7,6 +7,8 @@ define(function() {
 
     match('', 'supplier#list', {name: 'supplier_list'});
     match('suppliers', 'supplier#list', {name: 'supplier_list'});
+    match('suppliers/:id', 'supplier#show', {name: 'supplier_show'});
+
     match('hr', 'hr#list', {name: 'hr_list'});
 
   };

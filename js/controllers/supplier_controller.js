@@ -4,11 +4,13 @@ define([
   'models/supplier_collection',
   'views/supplier/side_view',
   'views/supplier/list_view',
+  'views/supplier/detail_view',
 ], function(Controller,
             Supplier,
             SupplierCollection,
             SupplierSideView,
-            SupplierListView) {
+            SupplierListView,
+            SupplierDetailView) {
   "use strict";
 
   var SupplierController = Controller.extend({
@@ -28,6 +30,16 @@ define([
         region: 'main_content',
       });
       this.reuse('sidebar').setView(this.view);
+    },
+
+    show: function(params) {
+      var model = new Supplier({id: params.id});
+      model.fetch();
+      this.view = new SupplierDetailView({
+        region: 'main_content',
+        model: model,
+      });
+      window.view = this.view;
     },
   });
 
