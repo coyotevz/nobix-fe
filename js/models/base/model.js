@@ -20,7 +20,7 @@ define([
       return base.replace(/([^\/])$/, '$1/') + encodeURIComponent(this.id);
     },
 
-  }).extend(Chaplin.EventBroker);
+  });
 
   return Model;
 });
