@@ -11,6 +11,7 @@ require([
   Pace.start();
   Pace.on('hide', function() {
     Chaplin.mediator.publish('pace:hide');
+    $('.loading-page').fadeOut('slow');
   });
   Pace.on('done', function() {
     Chaplin.mediator.publish('pace:done');
