@@ -9,7 +9,7 @@ define([
   var View = Chaplin.View.extend({
     noWrap: true,
     autoRender: true,
-    getTemplateFunction: function() {
+    getTemplateFunction: function(tmpl_attr) {
       /* Template compilation
        * ~~~~~~~~~~~~~~~~~~~~
        *
@@ -21,7 +21,8 @@ define([
        * In the end we want to precompile the templates to JavaScript functions
        * on the server-side and just load the JavaScript code.
        */
-      var template = this.template,
+      tmpl_attr = tmpl_attr || 'template';
+      var template = this[tmpl_attr],
           templateFunc = null;
 
       if (typeof template === 'string') {
@@ -29,7 +30,7 @@ define([
         templateFunc = function(ctx) {
           return tmpl.render(ctx);
         };
-        this.constructor.prototype.template = templateFunc;
+        this.constructor.prototype['tmpl_attr'] = templateFunc;
       } else {
         templateFunc = template;
       }

@@ -281,6 +281,12 @@ nav.appbar {
   }
 }
 
+.preloader-wrapper {
+  position: fixed;
+  left: calc(50% - (48px/2));
+  top: calc(50% - (48px/2));
+}
+
 .drag-target {
   z-index: 420;
 }

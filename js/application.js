@@ -8,10 +8,11 @@ require([
 ], function(Pace, $, Chaplin, Layout, routes) {
   "use strict";
 
-  Pace.start();
+  Pace.start({
+    restartOnRequestAfter: false,
+  });
   Pace.on('hide', function() {
     Chaplin.mediator.publish('pace:hide');
-    $('.loading-page').fadeOut('slow');
   });
   Pace.on('done', function() {
     Chaplin.mediator.publish('pace:done');
