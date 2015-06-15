@@ -15,5 +15,6 @@
 @import "sidenav";
 @import "custom";
 @import "appbar"; /* put after custom, due appbar rule rewrite */
+@import "card";
 @import "tooltip";
 @import "modal";
