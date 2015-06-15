@@ -8,7 +8,7 @@ define([
     menuItems: [
       {
         name: 'showall',
-        label: 'Todos',
+        label: 'Ver Todos',
         action: 'showAll',
       },
     ],
