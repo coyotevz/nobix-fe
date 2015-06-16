@@ -132,6 +132,20 @@ a {
   }
 }
 
+.list-title {
+  font-size: 13px;
+  color: #777;
+
+  a.list-title-action {
+    color: #999;
+    float: right;
+    &:hover {
+      color: #427fed;
+      text-decoration: underline;
+    }
+  }
+}
+
 .list {
   @extend .collection;
   display: table;
@@ -220,7 +234,7 @@ a {
 }
 
 .list.selection,
-.list li:hover {
+.list.selectable li:hover {
   .avatar-circle {
     display: none;
   }
