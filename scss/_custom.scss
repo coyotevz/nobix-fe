@@ -227,6 +227,15 @@ a {
 }
 
 .main-content {
+  margin-top: 1.66rem;
+
+  & > .col:first-child {
+    padding-left: 0;
+  }
+  & > .col:last-child {
+    padding-right: 0;
+  }
+
   .collection {
     border-style: none;
     background-size: 100% 98px;
