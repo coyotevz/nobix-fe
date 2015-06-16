@@ -1,16 +1,60 @@
 
 .card {
-  padding: 20px;
+
+  &,
+  &.col {
+    padding: 20px;
+  }
+
+
   .card-header {
-    h3.card-title {
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ddd;
+    .card-title {
+      display: block;
       color: #262626;
       margin: 0;
     }
-    address {
-      color: #888;
-      font-style: normal;
-      font-size: 14px;
-      line-height: 16px;
+
+    .info-horizontal {
+
+      &.secondary-info {
+        color: #888;
+        font-style: normal;
+        font-size: 13px;
+        line-height: 18px;
+        address {
+          font-style: normal;
+        }
+      }
+
+      display: table;
+      padding: 0;
+
+      .info-row {
+        display: table-row;
+
+        .info-label,
+        .info-data {
+          display: table-cell;
+        }
+
+        .info-label {
+          font-weight: bold;
+          padding-right: 16px;
+          white-space: nowrap;
+
+          &.light {
+            font-weight: normal;
+          }
+        }
+
+        .info-data {
+          white-space: normal;
+          word-wrap: break-word;
+        }
+      }
     }
   }
 
