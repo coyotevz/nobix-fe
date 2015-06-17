@@ -182,6 +182,7 @@ a {
       }
     }
 
+    .description, 
     .name {
       width: 20%;
       padding-right: 15px;
@@ -247,6 +248,12 @@ a {
           left: 10px;
         }
       }
+      &:active,
+      &.active {
+        div:first-child {
+          border-left: none;
+        }
+      }
     }
   }
 }
@@ -258,7 +265,8 @@ a {
   }
 }
 
-.invoices-list {
+.invoices-list,
+.po-list {
   .list-item {
     .date {
       text-align: right;
@@ -308,13 +316,13 @@ a {
 }
 
 $modules: (
-  "dashboard":  "pink",
-  "sales":      "green",
-  "purchases":  "amber",
-  "suppliers":  "blue",
-  "products":   "brown",
-  "hr":         "teal",
-  "finances":   "purple",
+"dashboard":  "pink",
+"sales":      "green",
+"purchases":  "amber",
+"suppliers":  "blue",
+"products":   "brown",
+"hr":         "teal",
+"finances":   "purple",
 );
 
 .module-name {
