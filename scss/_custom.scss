@@ -149,6 +149,7 @@ a {
 .list {
   @extend .collection;
   display: table;
+  width: 100%;
 
   li {
     @extend .collection-item;
@@ -231,12 +232,31 @@ a {
       }
     }
   }
+
+  &.short-list {
+    li {
+      div {
+        padding-right: 10px;
+      }
+      .iconimg {
+        .avatar-circle {
+          left: 10px;
+        }
+      }
+    }
+  }
 }
 
 .list.selection,
 .list.selectable li:hover {
   .avatar-circle {
     display: none;
+  }
+}
+
+.invoices-list {
+  .list-item {
+    
   }
 }
 
