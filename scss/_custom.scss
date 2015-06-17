@@ -237,8 +237,12 @@ a {
     li {
       div {
         padding-right: 10px;
+        border-left: none;
       }
       .iconimg {
+        width: 48px;
+        padding-left: 10px;
+
         .avatar-circle {
           left: 10px;
         }
@@ -256,7 +260,20 @@ a {
 
 .invoices-list {
   .list-item {
-    
+    .date {
+      text-align: right;
+      font-size: 13px;
+      color: #999;
+    }
+    .amount {
+      text-align: right;
+    }
+  }
+
+  &.short-list {
+    .description {
+      width: 50%;
+    }
   }
 }
 
@@ -332,5 +349,31 @@ nav.appbar {
 
 .drag-target {
   z-index: 420;
+}
+
+/* Rewrite badge */
+span.badge {
+  font-weight: 400;
+  font-size: 12px;
+  border-radius: 2px;
+
+  .list & {
+    line-height: 24px;
+    margin: 12px 0;
+  }
+
+  &.primary,
+  &.success,
+  &.info,
+  &.warning,
+  &.danger {
+    color: #fff;
+  }
+
+  &.primary { background-color: color("light-blue",   "darken-1"); }
+  &.success { background-color: color("light-green",  "darken-1"); }
+  &.info    { background-color: color("blue",         "lighten-4"); color: #555; }
+  &.warning { background-color: color("amber",        "darken-1"); }
+  &.danger  { background-color: color("red",          "darken-1"); }
 }
 // vim:sw=2
