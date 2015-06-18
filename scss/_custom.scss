@@ -266,13 +266,15 @@ a {
 }
 
 .invoices-list,
-.po-list {
+.po-list,
+.selled-products-list {
   .list-item {
     .date {
       text-align: right;
       font-size: 13px;
       color: #999;
     }
+    .quantity,
     .amount {
       text-align: right;
     }
@@ -281,6 +283,17 @@ a {
   &.short-list {
     .description {
       width: 50%;
+    }
+  }
+}
+
+.selled-products-list {
+  &.short-list {
+    .description {
+      width: 68%;
+      a {
+        font-weight: normal;
+      }
     }
   }
 }
@@ -363,6 +376,7 @@ nav.appbar {
 span.badge {
   font-weight: 400;
   font-size: 12px;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
   border-radius: 2px;
 
   .list & {
