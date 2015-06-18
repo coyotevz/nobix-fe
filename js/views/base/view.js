@@ -28,9 +28,9 @@ define([
       if (typeof template === 'string') {
         var tmpl = env.getTemplate(template);
         templateFunc = function(ctx) {
-          return tmpl.render(ctx);
+          return _.trim(tmpl.render(ctx));
         };
-        this.constructor.prototype['tmpl_attr'] = templateFunc;
+        this.constructor.prototype[tmpl_attr] = templateFunc;
       } else {
         templateFunc = template;
       }
