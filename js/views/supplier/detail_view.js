@@ -44,8 +44,18 @@ define([
     },
   });
 
-  var SupplierDetailView = ProgressView.extend({
+  var SupplierDetailView = View.extend({
+    autoRender: false,
     template: 'supplier/detail.html',
+
+    listen: {
+      'sync model': 'render',
+    },
+
+    initialize: function() {
+      SupplierDetailView.__super__.initialize.apply(this, arguments);
+      window.detail_view = this;
+    },
   });
 
   return SupplierDetailView;
