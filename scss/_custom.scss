@@ -372,6 +372,14 @@ nav.appbar {
   z-index: 420;
 }
 
+.no-left-padding {
+  padding-left: 0 !important;
+}
+
+.no-right-padding {
+  padding-right: 0 !important;
+}
+
 /* Rewrite badge */
 span.badge {
   font-weight: 400;
