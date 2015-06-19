@@ -10,6 +10,7 @@ define(function() {
     match('suppliers/:id', 'supplier#show', {name: 'supplier_show'});
 
     match('hr', 'hr#list', {name: 'hr_list'});
+    match('hr/:id', 'hr#show', {name: 'hr_show'});
 
   };
 

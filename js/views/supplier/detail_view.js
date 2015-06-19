@@ -51,11 +51,6 @@ define([
     listen: {
       'sync model': 'render',
     },
-
-    initialize: function() {
-      SupplierDetailView.__super__.initialize.apply(this, arguments);
-      window.detail_view = this;
-    },
   });
 
   return SupplierDetailView;

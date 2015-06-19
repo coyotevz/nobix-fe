@@ -1,0 +1,29 @@
+{% macro render_data(label, data) -%}
+<div class="info-row">
+  <span class="info-label light">{{ label }}</span>
+  <span class="info-data">{{ data }}</span>
+</div>
+{% endmacro %}
+
+<div class="col s12 m6">
+  <div class="card">
+    <div class="card-header row">
+      <div class="col s3">
+        <div class="iconimg">
+          <img class="circle responsive-img" src="image/factory.png">
+        </div>
+      </div>
+      <div class="col s9">
+        <span class="card-title">{{ last_name }}, {{ first_name }}</span>
+        <div class="info-horizontal secondary-info">
+          {% if cuil %}{{ render_data('CUIL', cuil) }}{% endif %}
+          {% if hire_date %}{{ render_data('Fecha de Ingreso', hire_date) }}{% endif %}
+          {% if birth_date %}{{ render_data('Fecha Nacimiento', birth_date) }}{% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{# vim: ft=jinja:sw=2
+#}
