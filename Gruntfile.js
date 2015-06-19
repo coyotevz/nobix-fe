@@ -29,12 +29,27 @@ module.exports = function(grunt) {
           include: [
             'application',
             'controllers/supplier_controller',
+            'controllers/hr_controller',
             '../<%= nunjucks.precompile.dest %>',
           ],
           //insertRequire: ['application'],
           preserveLicenseComments: false,
           wrap: true,
           optimize: "uglify",
+          done: function(done, output) {
+            var duplicates = require('rjs-build-analysis').duplicates(output);
+
+            if (Object.keys(duplicates).length > 0) {
+              grunt.log.subhead('Duplicates found in requirejs build:');
+              for (var key in duplicates) {
+                grunt.log.error(duplicates[key] + ": " + key);
+              }
+              return done(new Error('r.js build duplicate modules, please check the excludes option.'));
+            } else {
+              grunt.log.success("No duplicates found!");
+            }
+            done();
+          }
         }
       }
     },
@@ -42,7 +57,7 @@ module.exports = function(grunt) {
     nunjucks: {
       precompile: {
         baseDir: 'js/templates',
-        src: ['js/templates/*.html'],
+        src: ['js/templates/*.html', 'js/templates/*/*.html'],
         dest: 'nunjucks-templates.js',
         options: {
           //env: require('js/templates/env'),
