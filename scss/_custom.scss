@@ -144,6 +144,14 @@ a {
       text-decoration: underline;
     }
   }
+
+  .period {
+    float: right;
+    .prev,
+    .next {
+      margin: 0 20px;
+    }
+  }
 }
 
 .list {
@@ -306,6 +314,11 @@ table.compact-list {
     background-color: white;
     vertical-align: baseline;
     border-bottom: 1px solid #ececec;
+  }
+}
+
+table.attendance-list {
+  th, td {
 
     &.time,
     &.timeok {
@@ -313,6 +326,26 @@ table.compact-list {
     }
     &.timeok {
       color: #999;
+    }
+
+    &.status {
+      width: 15%;
+      text-align: right;
+    }
+
+    .label {
+      font-size: 12px;
+    }
+    .label-danger {
+      color: white;
+      font-weight: bold;
+      background-color: red;
+      border-radius: 3px;
+      padding: 0 4px;
+    }
+
+    .label-success {
+      visibility: hidden;
     }
   }
 }
