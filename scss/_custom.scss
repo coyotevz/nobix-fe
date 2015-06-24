@@ -307,8 +307,12 @@ table.compact-list {
     vertical-align: baseline;
     border-bottom: 1px solid #ececec;
 
-    &.time {
+    &.time,
+    &.timeok {
       font-size: 13px;
+    }
+    &.timeok {
+      color: #999;
     }
   }
 }
