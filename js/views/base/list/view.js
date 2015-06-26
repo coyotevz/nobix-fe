@@ -21,7 +21,9 @@ define([
 
     render: function() {
       ListView.__super__.render.apply(this, arguments);
-      console.log('ListView#render');
+      if (!this.$el.hasClass('selectable')) {
+        this.$el.addClass('selectable');
+      }
     },
 
     initItemView: function(model) {
