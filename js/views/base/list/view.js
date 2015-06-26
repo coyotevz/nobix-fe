@@ -7,15 +7,13 @@ define([
 
   var ListView = CollectionView.extend({
     animationDuration: 0,
-    selectionContext: null,
     selectionContextView: ListSelectionContextView,
 
     initialize: function() {
       ListView.__super__.initialize.apply(this, arguments);
       if (this.selectionContextView) {
-        this.selectionContext = this.reuse('selection_context',
-                                           this.selectionContextView,
-                                           {parent: this});
+        var context = new this.selectionContextView({parent: this});
+        this.subview('selection_context', context);
       }
     },
 
@@ -53,8 +51,8 @@ define([
         /* all unselected */
         this.$el.removeClass('selection');
       }
-      if (item) item.setActive();
-      if (this.selectionContext) this.selectionContext.update();
+      var context = this.subview('selection_context');
+      if (context) context.update();
     },
 
     selectAll: function() {

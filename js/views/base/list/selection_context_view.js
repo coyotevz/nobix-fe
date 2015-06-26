@@ -7,16 +7,18 @@ define([
   var ListSelectionContextView = View.extend({
     optionNames: View.prototype.optionNames.concat(['parent']),
 
-    listen: {
-      'pace:hide mediator': 'activateDropdown',
-    },
+    // overwrite for custom context tempalte
+    template: 'common/selection_context.html',
+    noWrap: false,
+    el: 'nav.selection-context',
 
     render: function() {
       ListSelectionContextView.__super__.render.apply(this, arguments);
       this.delegate('click', '.action-back', this.unselectAll);
       this.delegate('click', '#select-all', this.selectAll);
       this.delegate('click', '#unselect-all', this.unselectAll);
-      this.$countData = this.$('.selected-count-data');
+      this.$countData = this.$('.selection-info-bar .qty');
+      this.activateDropdown();
     },
 
     update: function() {
@@ -54,6 +56,15 @@ define([
         constrain_width: false,
         belowOrigin: true,
       });
+    },
+
+    /* rewrite to keep root $el element in DOM */
+    remove: function() {
+      this.$el.empty();
+      this.undelegateEvents();
+      this.undelegate();
+      this.stopListening();
+      return this;
     },
 
   });

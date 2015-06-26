@@ -38,16 +38,6 @@ define([
       view.$el.toggleClass('selected', opt);
     },
 
-    /* TODO set/unset active needs more research on logic and implementation */
-    setActive: function() {
-      /* deactivate any previous activated item */
-      _.invoke(_.values(this.parent.getItemViews()), 'setInactive');
-      //this.$el.addClass('active');
-    },
-
-    setInactive: function() {
-      this.$el.removeClass('active');
-    },
   });
 
   return ListItemView;

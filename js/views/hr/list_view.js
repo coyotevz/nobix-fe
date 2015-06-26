@@ -6,8 +6,7 @@ define([
   "use strict";
 
   var EmployeeSelectionContext = ListSelectionContextView.extend({
-    contianer: '.module-header-container',
-    template: 'common/selection_context.html',
+    /* TODO: define actions */
   });
 
   var EmployeeListView = ListView.extend({
