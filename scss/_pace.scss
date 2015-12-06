@@ -31,8 +31,8 @@ $pace-bar-bg-color: $white;
   &.pace-inactive { display: none; }
 
   .pace-progress {
-    @include box-sizing(border-box);
-    @include transform(translate3d(0, 0, 0));
+    box-sizing: border-box;
+    transform: translate3d(0,0,0);
 
     max-width: $pace-bar-width;
     position: fixed;

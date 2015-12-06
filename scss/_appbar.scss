@@ -47,7 +47,7 @@ nav.appbar, nav.selection-context {
 
 nav.appbar {
   z-index: 490;
-  @include transition(background-color .15s);
+  transition: background-color .15s;
 
   a.action-back {
     display: none;
@@ -57,7 +57,7 @@ nav.appbar {
     background-color: rgba(255,255,255,0.15);
     border-radius: 2px;
     display: flex;
-    @include transition(background-color .15s);
+    transition: background-color .15s;
 
     &:hover {
       background-color: rgba(255,255,255,0.25);
@@ -140,7 +140,7 @@ nav.selection-context {
   visibility: hidden;
   opacity: 0;
   transform: translateY(-56px);
-  @include transition(all .15s ease-in-out, visibility 0s);
+  transition: all .15s ease-in-out, visibility 0s;
 
   &.active-context {
     transform: translateY(0px);

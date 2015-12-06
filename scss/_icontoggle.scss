@@ -14,7 +14,7 @@
   border-radius: 50%;
   background-color: transparent;
   opacity: 0.8;
-  @include transition(background-color 0.118s ease-out);
+  transition: background-color 0.118s ease-out;
 
   i {
     width: inherit;
